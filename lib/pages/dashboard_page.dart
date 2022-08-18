@@ -1,9 +1,11 @@
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/common/app_colors.dart';
 import 'package:portfolio/controllers/dashboard_controller.dart';
+import 'package:portfolio/pages/home_page.dart';
+
+import '../common/spaces_boxes.dart';
 
 class DashBoardPage extends GetView<DashBoardController> {
   static const id = '/DashBoardPage';
@@ -13,93 +15,72 @@ class DashBoardPage extends GetView<DashBoardController> {
     return GetX<DashBoardController>(
       initState: (_) {},
       builder: (logic) {
-        controller.isLoading.value;
-        return Stack(
-          children: [
-            animatedBackGround(),
-            Scaffold(
-              backgroundColor: Colors.transparent,
-              body: Container(
-                margin: EdgeInsets.only(top: 40.r, left: 20.r, right: 20.r),
-                child: Column(
-                  children: [
-                    ///top bar
-                    Container(
-                      margin: EdgeInsets.only(
-                          top: 20.r, left: 20.r, right: 20.r, bottom: 10.r),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(50.r),
-                        child: BottomNavyBar(
-                          curve: Curves.decelerate,
-                          backgroundColor: AppColor.primaryColor,
-                          showElevation: true,
-                          selectedIndex: controller.currentIndex.value,
-                          onItemSelected: (index) {
-                            controller.currentIndex.value = index;
-                            controller.pageController.jumpToPage(index);
-                          },
-                          items: <BottomNavyBarItem>[
-                            _getNavBarItem(title: 'Home', icon: Icons.home),
-                            _getNavBarItem(
-                                title: 'Skills',
-                                icon: Icons.work_history_outlined),
-                            _getNavBarItem(
-                                title: 'Experience',
-                                icon: Icons.data_usage_rounded),
-                            _getNavBarItem(
-                                title: 'Contact', icon: Icons.contact_mail),
-                          ],
-                        ),
+        controller.currentIndex.value;
+        return Scaffold(
+          body: Stack(
+            children: [
+              animatedBackGround(),
+              Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  PageView(
+                    controller: controller.pageController,
+                    scrollDirection: Axis.vertical,
+                    onPageChanged: (index) {
+                      controller.currentIndex.value = index;
+                    },
+                    children: <Widget>[
+                      HomePage(),
+                      Container(
+                        color: Colors.green,
                       ),
-                    ),
-
-                    ///page view
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: PageView(
-                          controller: controller.pageController,
-                          onPageChanged: (index) {
-                            controller.currentIndex.value = index;
-                          },
-                          children: <Widget>[
-                            Container(
-                              color: controller.pageBackGroundOpacity,
-                            ),
-                            Container(
-                              color: controller.pageBackGroundOpacity,
-                            ),
-                            Container(
-                              color: controller.pageBackGroundOpacity,
-                            ),
-                            Container(
-                              color: controller.pageBackGroundOpacity,
-                            ),
-                          ],
+                      HomePage(),
+                      HomePage(),
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                        horizontal: 125.r, vertical: 100.r),
+                    child: BottomNavigationBar(
+                      enableFeedback: true,
+                      elevation: 16,
+                      unselectedItemColor: AppColor.grey,
+                      selectedItemColor: AppColor.whiteColor,
+                      backgroundColor: Colors.black,
+                      type: BottomNavigationBarType.fixed,
+                      currentIndex: controller.currentIndex.value,
+                      onTap: (value) {
+                        controller.currentIndex.value = value;
+                        controller.pageController
+                            .jumpToPage(controller.currentIndex.value);
+                      },
+                      // Fixed// <-- T
+                      items: const <BottomNavigationBarItem>[
+                        BottomNavigationBarItem(
+                          icon: Icon(Icons.home),
+                          label: 'Home',
                         ),
-                      ),
+                        BottomNavigationBarItem(
+                          icon: Icon(Icons.home),
+                          label: 'Home',
+                        ),
+                        BottomNavigationBarItem(
+                          icon: Icon(Icons.home),
+                          label: 'Home',
+                        ),
+                        BottomNavigationBarItem(
+                          icon: Icon(Icons.home),
+                          label: 'Home',
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
-    );
-  }
-
-  _getNavBarItem({required String title, required IconData icon}) {
-    return BottomNavyBarItem(
-      activeColor: AppColor.blackColor,
-      inactiveColor: AppColor.grey,
-      title: Text(
-        title,
-        style: AppTextStyles.textStyleBoldBodyMedium,
-      ),
-      icon: Icon(
-        icon,
-      ),
     );
   }
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppColor {
@@ -9,6 +11,7 @@ class AppColor {
   static const darkBlue = Color(0xff037dcb);
   static const lightBlue = Color(0xff5fbced);
   static const grey = Color(0xffbcbdbc);
+  static final cardBgColor = Colors.blueGrey.withOpacity(0.7);
 }
 
 class AppTextStyles {
@@ -35,4 +38,9 @@ class AppTextStyles {
   static TextStyle textStyleBoldBodyXSmall = _fontBold.copyWith(fontSize: 12);
   static TextStyle textStyleNormalBodyXSmall =
       _fontNormal.copyWith(fontSize: 12);
+}
+
+class AppStyles {
+  static final cardBoxDecoration = BoxDecoration(
+      color: AppColor.cardBgColor, borderRadius: BorderRadius.circular(14));
 }
