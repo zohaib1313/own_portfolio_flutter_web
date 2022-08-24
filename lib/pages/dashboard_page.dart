@@ -6,6 +6,7 @@ import 'package:portfolio/controllers/dashboard_controller.dart';
 import 'package:portfolio/pages/home_page.dart';
 
 import '../common/spaces_boxes.dart';
+import 'about_page.dart';
 
 class DashBoardPage extends GetView<DashBoardController> {
   static const id = '/DashBoardPage';
@@ -30,12 +31,15 @@ class DashBoardPage extends GetView<DashBoardController> {
                       controller.currentIndex.value = index;
                     },
                     children: <Widget>[
-                      HomePage(),
+                      const AboutPage(),
                       Container(
                         color: Colors.green,
                       ),
                       HomePage(),
                       HomePage(),
+                      Container(
+                        color: Colors.green,
+                      ),
                     ],
                   ),
                   Container(
@@ -58,19 +62,23 @@ class DashBoardPage extends GetView<DashBoardController> {
                       items: const <BottomNavigationBarItem>[
                         BottomNavigationBarItem(
                           icon: Icon(Icons.home),
-                          label: 'Home',
+                          label: 'About',
                         ),
                         BottomNavigationBarItem(
                           icon: Icon(Icons.home),
-                          label: 'Home',
+                          label: 'Education Skills',
                         ),
                         BottomNavigationBarItem(
                           icon: Icon(Icons.home),
-                          label: 'Home',
+                          label: 'Experience',
                         ),
                         BottomNavigationBarItem(
                           icon: Icon(Icons.home),
-                          label: 'Home',
+                          label: 'Projects',
+                        ),
+                        BottomNavigationBarItem(
+                          icon: Icon(Icons.home),
+                          label: 'Contact',
                         ),
                       ],
                     ),
