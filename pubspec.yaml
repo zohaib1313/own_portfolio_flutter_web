@@ -37,6 +37,7 @@ dependencies:
   flutter_screenutil: ^5.4.0
   google_fonts: ^2.3.2
   get:
+  show_up_animation:
   drop_shadow_image: ^0.9.1
 
 

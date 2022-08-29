@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:drop_shadow_image/drop_shadow_image.dart';
@@ -7,11 +8,12 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_getx_widget.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:portfolio/common/app_colors.dart';
+import 'package:show_up_animation/show_up_animation.dart';
 
+import '../common/spaces_boxes.dart';
 import '../controllers/home_controller.dart';
 
 class AboutPage extends GetView<HomeController> {
-  const AboutPage({Key? key}) : super(key: key);
   static const id = '/AboutPage';
 
   @override
@@ -25,23 +27,52 @@ class AboutPage extends GetView<HomeController> {
           margin: const EdgeInsets.all(10),
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                DropShadowImage(
-                  offset: const Offset(4.0, 20),
-                  scale: 1,
-                  blurRadius: 12,
-                  borderRadius: 20,
-                  image: Image.asset(
-                    'assets/images/worker.jpg',
-                    width: 300,
-                    height: 300,
-                    fit: BoxFit.fill,
-                  ),
+            child: ShowUpAnimation(
+              delayStart: const Duration(microseconds: 0),
+              animationDuration: const Duration(milliseconds: 500),
+              curve: Curves.linear,
+              direction: Direction.horizontal,
+              offset: 0.3,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            'JOHN DOE',
+                            style: AppTextStyles.textStyleBoldTitleLarge
+                                .copyWith(
+                                    color: AppColor.whiteColor,
+                                    fontSize: 80.sp),
+                          ),
+                        ),
+                        hSpace,
+                        ScaleTransition(
+                          scale: CurvedAnimation(
+                              curve: Curves.easeIn,
+                              reverseCurve: Curves.easeInOut,
+                              parent: controller.scaleAnimationController),
+                          child: CircleAvatar(
+                            radius: 100,
+                            backgroundImage: Image.asset(
+                              'assets/images/worker.jpg',
+                              width: 200,
+                              height: 300,
+                              fit: BoxFit.fill,
+                            ).image,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         );

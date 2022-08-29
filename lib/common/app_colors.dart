@@ -25,19 +25,19 @@ class AppTextStyles {
   static TextStyle textStyleBoldTitleLarge = _fontBold.copyWith(fontSize: 22);
 
   static TextStyle textStyleBoldSubTitleLarge =
-      _fontBold.copyWith(fontSize: 20);
+      _fontBold.copyWith(fontSize: 30);
 
   static TextStyle textStyleNormalLargeTitle =
-      _fontNormal.copyWith(fontSize: 20);
+      _fontNormal.copyWith(fontSize: 30);
   static TextStyle textStyleBoldBodyMedium = _fontBold.copyWith(fontSize: 16);
   static TextStyle textStyleNormalBodyMedium =
-      _fontNormal.copyWith(fontSize: 16);
+      _fontNormal.copyWith(fontSize: 26);
   static TextStyle textStyleBoldBodySmall = _fontBold.copyWith(fontSize: 14);
   static TextStyle textStyleNormalBodySmall =
-      _fontNormal.copyWith(fontSize: 14);
+      _fontNormal.copyWith(fontSize: 24);
   static TextStyle textStyleBoldBodyXSmall = _fontBold.copyWith(fontSize: 12);
   static TextStyle textStyleNormalBodyXSmall =
-      _fontNormal.copyWith(fontSize: 12);
+      _fontNormal.copyWith(fontSize: 22);
 }
 
 class AppStyles {

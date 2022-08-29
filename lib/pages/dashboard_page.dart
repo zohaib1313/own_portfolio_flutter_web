@@ -31,7 +31,7 @@ class DashBoardPage extends GetView<DashBoardController> {
                       controller.currentIndex.value = index;
                     },
                     children: <Widget>[
-                      const AboutPage(),
+                      AboutPage(),
                       Container(
                         color: Colors.green,
                       ),
