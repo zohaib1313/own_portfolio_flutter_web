@@ -5,7 +5,6 @@ import 'package:portfolio/common/app_colors.dart';
 import 'package:portfolio/controllers/dashboard_controller.dart';
 import 'package:portfolio/pages/home_page.dart';
 
-import '../common/spaces_boxes.dart';
 import 'about_page.dart';
 
 class DashBoardPage extends GetView<DashBoardController> {
@@ -18,73 +17,10 @@ class DashBoardPage extends GetView<DashBoardController> {
       builder: (logic) {
         controller.currentIndex.value;
         return Scaffold(
+          backgroundColor: AppColor.primaryColor,
           body: Stack(
             children: [
-              animatedBackGround(),
-              Stack(
-                alignment: Alignment.bottomCenter,
-                children: [
-                  PageView(
-                    controller: controller.pageController,
-                    scrollDirection: Axis.vertical,
-                    onPageChanged: (index) {
-                      controller.currentIndex.value = index;
-                    },
-                    children: <Widget>[
-                      AboutPage(),
-                      Container(
-                        color: Colors.green,
-                      ),
-                      HomePage(),
-                      HomePage(),
-                      Container(
-                        color: Colors.green,
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                        horizontal: 125.r, vertical: 100.r),
-                    child: BottomNavigationBar(
-                      enableFeedback: true,
-                      elevation: 16,
-                      unselectedItemColor: AppColor.grey,
-                      selectedItemColor: AppColor.whiteColor,
-                      backgroundColor: Colors.black,
-                      type: BottomNavigationBarType.fixed,
-                      currentIndex: controller.currentIndex.value,
-                      onTap: (value) {
-                        controller.currentIndex.value = value;
-                        controller.pageController
-                            .jumpToPage(controller.currentIndex.value);
-                      },
-                      // Fixed// <-- T
-                      items: const <BottomNavigationBarItem>[
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.home),
-                          label: 'About',
-                        ),
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.home),
-                          label: 'Education Skills',
-                        ),
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.home),
-                          label: 'Experience',
-                        ),
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.home),
-                          label: 'Projects',
-                        ),
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.home),
-                          label: 'Contact',
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+              AboutPage(),
             ],
           ),
         );
@@ -105,9 +41,9 @@ class DashBoardPage extends GetView<DashBoardController> {
                   decoration: const BoxDecoration(
                     color: AppColor.whiteColor,
                     image: DecorationImage(
-                      image: AssetImage('assets/images/bg4.png'),
+                      image: AssetImage('assets/images/bg_img.jpg'),
                       opacity: 0.9,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ),

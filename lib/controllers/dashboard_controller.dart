@@ -19,10 +19,10 @@ class DashBoardController extends GetxController
   @override
   void onInit() {
     motionController = AnimationController(
-        duration: const Duration(seconds: 15),
+        duration: const Duration(seconds: 30),
         vsync: this,
         lowerBound: 0.0,
-        upperBound: 0.3);
+        upperBound: 0.1);
     motionController?.forward();
     motionController?.addStatusListener((status) {
       if (status == AnimationStatus.completed) {

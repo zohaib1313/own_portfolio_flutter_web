@@ -4,21 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppColor {
-  static const primaryColor = Color(0xffffe000);
+  static const primaryColor = Color(0xff0A192F);
+  static const lightBlue = Color(0xff41FBDA);
   static const whiteColor = Color(0xffffffff);
   static const blackColor = Color(0xff363a43);
   static const greenColor = Color(0xff50c40d);
   static const darkBlue = Color(0xff037dcb);
-  static const lightBlue = Color(0xff5fbced);
   static const grey = Color(0xffbcbdbc);
   static final cardBgColor = Colors.blueGrey.withOpacity(0.7);
+
+  static var iconsColors = const Color(0xffffA8B2D1);
 }
 
 class AppTextStyles {
-  static final _fontBold = GoogleFonts.abel(
+  static final _fontBold = GoogleFonts.average(
       textStyle: const TextStyle(
           fontWeight: FontWeight.bold, color: AppColor.blackColor));
-  static final _fontNormal = GoogleFonts.abel(
+  static final _fontNormal = GoogleFonts.average(
       textStyle: const TextStyle(
           fontWeight: FontWeight.normal, color: AppColor.blackColor));
 
