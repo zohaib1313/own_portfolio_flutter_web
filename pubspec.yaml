@@ -44,6 +44,9 @@ dependencies:
   scroll_to_index:
   steps: ^1.0.1
   web_smooth_scroll: ^1.0.0
+  styled_text: ^6.0.0
+  flip_card: ^0.6.0
+  carousel_slider: ^4.1.1
 
 
 dev_dependencies:

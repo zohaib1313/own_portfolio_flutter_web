@@ -7,9 +7,11 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_getx_widget.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:portfolio/common/app_colors.dart';
+import 'package:portfolio/pages/my_projects.dart';
+import 'package:portfolio/pages/work_experience_page.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:show_up_animation/show_up_animation.dart';
-import 'package:web_smooth_scroll/web_smooth_scroll.dart';
+
 import '../common/app_constants.dart';
 import '../controllers/home_controller.dart';
 import '../widgets/AppBarTitle.dart';
@@ -179,7 +181,7 @@ class AboutPage extends GetView<HomeController> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const CustomText(
+                                    /*          const CustomText(
                                       text: "Hi, my name is",
                                       textsize: 16.0,
                                       color: Color(0xff41FBDA),
@@ -249,8 +251,9 @@ class AboutPage extends GetView<HomeController> {
                                       children: [
                                         Text(
                                           AppConstants.subTitle,
-                                          style: const TextStyle(
-                                            color: Colors.grey,
+                                          style: TextStyle(
+                                            color: const Color(0xffCCD6F6)
+                                                .withOpacity(0.5),
                                             fontSize: 16.0,
                                             letterSpacing: 2.75,
                                             wordSpacing: 0.75,
@@ -293,7 +296,16 @@ class AboutPage extends GetView<HomeController> {
 
                                     SizedBox(height: context.height * .12),
 
-                                    _wrapScrollTag(index: 0, child: About()),
+                                    _wrapScrollTag(
+                                        index: 0, child: AboutMePage()),
+                                    SizedBox(height: context.height * .12),
+
+                                    _wrapScrollTag(
+                                        index: 1,
+                                        child: const WorkExperiencePage()),
+*/
+                                    _wrapScrollTag(
+                                        index: 2, child: const MyProjects()),
                                   ],
                                 ),
                               ),
@@ -319,7 +331,8 @@ class AboutPage extends GetView<HomeController> {
                                 child: Container(
                                   height: 100,
                                   width: 2,
-                                  color: Colors.grey.withOpacity(0.4),
+                                  color:
+                                      const Color(0xffCCD6F6).withOpacity(0.5),
                                 ),
                               ),
                             ],

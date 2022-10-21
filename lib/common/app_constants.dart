@@ -3,8 +3,7 @@ class AppConstants {
       "I'm a mobile application developer, specializing in \nbuilding (and occasionally designing) exceptional websites, \napplications, and everything in between.";
 
   static const aboutMe =
-      '''I.T graduated Having 5+ years of experience in Mobile App development with 2 years of experience in native development (Java/Kotlin) and 3 years of experience in Flutter application development. Experienced with all stages of the development cycle of dynamic mobile projects,
-  Constantly striving to learn new technologies and always looking ways to better myself in rapidly changing industry.
+      '''I.T graduated Having 5+ years of experience in Mobile App development with 2 years of experience in native development (Java/Kotlin) and 3 years of experience in Flutter application development. Experienced with all stages of the development cycle of dynamic mobile projects.\nConstantly striving to learn new technologies and always looking ways to better myself in rapidly changing industry.
   ''';
 
   static const resultOriented =
