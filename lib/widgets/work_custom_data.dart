@@ -57,15 +57,16 @@ class WorkCustomData extends StatelessWidget {
         const SizedBox(
           height: 6.0,
         ),
-        StyledText(
-          text: subTitle,
-          overflow: TextOverflow.visible,
-          softWrap: true,
-          newLineAsBreaks: true,
-          style: TextStyle(
-            fontSize: 13.0,
-            color: AppColor.grey,
-            fontWeight: FontWeight.w600,
+        Flexible(
+          child: StyledText(
+            text: subTitle,
+            overflow: TextOverflow.visible,
+            newLineAsBreaks: true,
+            style: TextStyle(
+              fontSize: 13.0,
+              color: AppColor.grey,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       ],

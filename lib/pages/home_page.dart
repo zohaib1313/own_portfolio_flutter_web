@@ -34,7 +34,18 @@ class HomePage extends GetView<HomeController> {
         controller.isLoading.value;
         return Scaffold(
           backgroundColor: AppColor.primaryColor,
-          body: RawKeyboardListener(
+          body: /*context.width < 720
+              ? Container(
+                  child: Center(
+                    child: Text(
+                      'not setup for mobile..',
+                      style: AppTextStyles.textStyleNormalBodyXSmall
+                          .copyWith(color: AppColor.lightBlue),
+                    ),
+                  ),
+                )
+              :*/
+              RawKeyboardListener(
             autofocus: true,
             focusNode: _focusNode,
             onKey: controller.handleKeyEvent,

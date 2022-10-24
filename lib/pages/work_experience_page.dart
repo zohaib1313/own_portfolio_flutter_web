@@ -40,7 +40,7 @@ class WorkExperiencePage extends StatelessWidget {
             const Spacer(),
           ],
         ),
-        SizedBox(height: context.height * 0.07),
+        // SizedBox(height: context.height * 0.07),
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -283,7 +283,7 @@ Implementation and Testing.
             ),
           ],
         ),
-        SizedBox(height: context.height * 0.07),
+        //     SizedBox(height: context.height * 0.07),
       ],
     );
   }

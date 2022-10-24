@@ -7,6 +7,7 @@ import 'package:portfolio/controllers/dashboard_controller.dart';
 import 'package:portfolio/pages/dashboard_page.dart';
 
 import '../controllers/home_controller.dart';
+import '../pages/home_page.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -23,4 +24,8 @@ final List<GetPage> appRoutes = [
         Get.put(DashBoardController());
         Get.put(HomeController());
       })),
+  GetPage(
+      name: HomePage.id,
+      page: () => HomePage(),
+      binding: BindingsBuilder(() => Get.lazyPut(() => HomeController())))
 ];
