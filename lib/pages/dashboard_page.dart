@@ -3,29 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/common/app_colors.dart';
 import 'package:portfolio/controllers/dashboard_controller.dart';
-import 'package:portfolio/pages/home_page.dart';
 
-import 'about_page.dart';
+import 'home_page.dart';
 
 class DashBoardPage extends GetView<DashBoardController> {
   static const id = '/DashBoardPage';
 
   @override
   Widget build(BuildContext context) {
-    return GetX<DashBoardController>(
-      initState: (_) {},
-      builder: (logic) {
-        controller.currentIndex.value;
-        return Scaffold(
-          backgroundColor: AppColor.primaryColor,
-          body: Stack(
-            children: [
-              AboutPage(),
-            ],
-          ),
-        );
-      },
-    );
+    return HomePage();
   }
 
   animatedBackGround() {

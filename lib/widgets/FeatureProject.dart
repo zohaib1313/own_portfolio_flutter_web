@@ -5,8 +5,7 @@ import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-
-import 'customText.dart';
+import 'package:portfolio/common/app_colors.dart';
 
 class FeatureProject extends StatelessWidget {
   final List<String> imagePath;
@@ -15,7 +14,7 @@ class FeatureProject extends StatelessWidget {
   final String tech1;
 
   final dynamic onTap;
-  GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
+  final GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
 
   FeatureProject(
       {super.key,
@@ -39,7 +38,8 @@ class FeatureProject extends StatelessWidget {
           ///web
           margin: const EdgeInsets.all(30),
           height: context.height * 0.30,
-          width: context.width * 0.20,
+          width:
+              context.width > 720 ? context.width * 0.20 : context.width * 0.5,
           child: FlipCard(
             fill: Fill.fillBack,
             key: cardKey,
@@ -48,7 +48,9 @@ class FeatureProject extends StatelessWidget {
                 items: imagePath
                     .map((e) => Image.asset(
                         height: context.height * 0.30,
-                        width: context.width * 0.20,
+                        width: context.width > 720
+                            ? context.width * 0.20
+                            : context.width * 0.5,
                         fit: BoxFit.fill,
                         e))
                     .toList(),
@@ -71,40 +73,49 @@ class FeatureProject extends StatelessWidget {
               child: Column(
                 children: [
                   Flexible(
-                    child: CustomText(
-                      text: projectTitle,
-                      textsize: 16,
-                      color: Colors.white70,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 1.75,
+                    child: Text(
+                      projectTitle,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: AppTextStyles.textStyleBoldBodyXSmall.copyWith(
+                          fontSize: context.height * 0.04,
+                          color: Colors.white70),
+                    ),
+                  ),
+                  Text(
+                    projectDesc,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 4,
+                    style: AppTextStyles.textStyleNormalBodyXSmall.copyWith(
+                        fontSize: context.height * 0.02, color: Colors.white70),
+                  ),
+                  Flexible(
+                    child: Wrap(
+                      children: [
+                        for (String s in tech1.split(','))
+                          Padding(
+                            padding: const EdgeInsets.all(4),
+                            child: Text(
+                              s,
+                              style: AppTextStyles.textStyleBoldBodyXSmall
+                                  .copyWith(
+                                fontSize: context.height * 0.02,
+                                color: Colors.lime,
+                              ),
+                            ),
+                          )
+                      ],
                     ),
                   ),
                   Flexible(
-                    child: CustomText(
-                      text: projectDesc,
-                      textsize: 14,
-                      color: Colors.white70,
-                    ),
-                  ),
-                  Wrap(
-                    children: [
-                      for (String s in tech1.split(','))
-                        Padding(
-                          padding: const EdgeInsets.all(14),
-                          child: CustomText(
-                            text: s,
-                            textsize: 14,
-                            color: Colors.lime,
-                          ),
-                        )
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(6),
-                    child: IconButton(
-                      icon: const FaIcon(FontAwesomeIcons.github),
-                      color: Colors.white.withOpacity(0.3),
-                      onPressed: onTap,
+                    child: Padding(
+                      padding: const EdgeInsets.all(6),
+                      child: IconButton(
+                        icon: FaIcon(FontAwesomeIcons.github,
+                            size: context.height * 0.04),
+                        color: Colors.white.withOpacity(0.3),
+                        onPressed: onTap,
+                      ),
                     ),
                   )
                 ],

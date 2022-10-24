@@ -9,7 +9,7 @@ class SocialWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: context.width * 0.09,
       height: context.height - 82,
       child: Column(

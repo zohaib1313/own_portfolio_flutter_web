@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:styled_text/styled_text.dart';
+
+import '../common/app_colors.dart';
 
 class WorkCustomData extends StatelessWidget {
   final String title;
@@ -21,36 +24,32 @@ class WorkCustomData extends StatelessWidget {
       children: <Widget>[
         Text(
           title,
-          style: const TextStyle(
-            fontSize: 22.0,
-            color: Color(0xffCCD6F6),
+          style: TextStyle(
+            fontSize: 22,
+            color: AppColor.whiteColor.withOpacity(0.6),
             fontWeight: FontWeight.w700,
           ),
         ),
         Row(
           children: [
-            Flexible(
-              child: Text(
-                jobTitle,
-                style: TextStyle(
-                  fontSize: 12.0,
-                  color: const Color(0xffCCD6F6).withOpacity(0.5),
-                  fontWeight: FontWeight.w700,
-                ),
+            Text(
+              jobTitle,
+              style: TextStyle(
+                fontSize: 12,
+                color: AppColor.whiteColor.withOpacity(0.5),
+                fontWeight: FontWeight.w700,
               ),
             ),
             const SizedBox(
               width: 16.0,
             ),
-            Flexible(
-              child: Text(
-                duration,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 12.0,
-                  color: const Color(0xffCCD6F6).withOpacity(0.5),
-                  fontWeight: FontWeight.w700,
-                ),
+            Text(
+              duration,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 12.0,
+                color: AppColor.whiteColor.withOpacity(0.5),
+                fontWeight: FontWeight.w700,
               ),
             ),
           ],
@@ -58,17 +57,15 @@ class WorkCustomData extends StatelessWidget {
         const SizedBox(
           height: 6.0,
         ),
-        Flexible(
-          child: StyledText(
-            text: subTitle,
-            overflow: TextOverflow.visible,
-            softWrap: true,
-            newLineAsBreaks: true,
-            style: TextStyle(
-              fontSize: 13.0,
-              color: const Color(0xffCCD6F6).withOpacity(0.5),
-              fontWeight: FontWeight.w600,
-            ),
+        StyledText(
+          text: subTitle,
+          overflow: TextOverflow.visible,
+          softWrap: true,
+          newLineAsBreaks: true,
+          style: TextStyle(
+            fontSize: 13.0,
+            color: AppColor.grey,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ],

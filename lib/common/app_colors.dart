@@ -6,11 +6,12 @@ import 'package:google_fonts/google_fonts.dart';
 class AppColor {
   static const primaryColor = Color(0xff0A192F);
   static const lightBlue = Color(0xff41FBDA);
-  static const whiteColor = Color(0xffffffff);
+  static const whiteColor = Color(0xffCCD6F6);
   static const blackColor = Color(0xff363a43);
-  static const greenColor = Color(0xff50c40d);
-  static const darkBlue = Color(0xff037dcb);
-  static const grey = Color(0xffbcbdbc);
+  static const greenColor = Color(0xff61F9D5);
+  static const darkBlue = Color(0xff303C55);
+  static final grey = Color(0xffCCD6F6).withOpacity(0.5);
+
   static final cardBgColor = Colors.blueGrey.withOpacity(0.7);
 
   static var iconsColors = const Color(0xffffA8B2D1);

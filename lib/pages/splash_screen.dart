@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/common/app_colors.dart';
+import 'package:portfolio/pages/home_page.dart';
 import 'package:portfolio/pages/dashboard_page.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void gotoRelevantScreenOnUserType() {
-    Get.toNamed(DashBoardPage.id);
+    Get.toNamed(HomePage.id);
   }
 
   @override

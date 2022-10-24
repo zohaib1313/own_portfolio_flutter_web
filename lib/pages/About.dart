@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/common/app_colors.dart';
 import 'package:portfolio/common/app_constants.dart';
 
 import '../widgets/customText.dart';
 
 class AboutMePage extends StatelessWidget {
+  const AboutMePage({super.key});
+
   Widget technology(BuildContext context, String text) {
     return Row(
       children: [
         Icon(
           Icons.skip_next,
-          color: const Color(0xff64FFDA).withOpacity(0.6),
+          color: AppColor.lightBlue.withOpacity(0.6),
           size: 14.0,
         ),
         SizedBox(
@@ -19,9 +23,9 @@ class AboutMePage extends StatelessWidget {
         Flexible(
           child: Text(
             text,
-            style: const TextStyle(
+            style: TextStyle(
               overflow: TextOverflow.ellipsis,
-              color: Color(0xff717C99),
+              color: AppColor.grey,
               letterSpacing: 1.75,
             ),
           ),
@@ -41,55 +45,158 @@ class AboutMePage extends StatelessWidget {
             const CustomText(
               text: "01.",
               textsize: 20.0,
-              color: Color(0xff61F9D5),
+              color: AppColor.lightBlue,
               fontWeight: FontWeight.w700,
             ),
             SizedBox(width: context.width * 0.02),
             const CustomText(
               text: "About Me",
               textsize: 26.0,
-              color: Color(0xffCCD6F6),
+              color: AppColor.whiteColor,
               fontWeight: FontWeight.w700,
             ),
             SizedBox(width: context.width * 0.02),
             Expanded(
               child: Container(
                 height: 1.10,
-                color: const Color(0xff303C55),
+                color: AppColor.darkBlue,
               ),
             ),
             const Spacer()
           ],
         ),
-        Row(
-          children: [
-            ///About me
-            Flexible(
-              child: Column(
+        (context.width > 720)
+            ? Row(
                 children: [
+                  ///About me
+                  Flexible(
+                    child: Column(
+                      children: [
+                        SizedBox(height: context.height * 0.07),
+
+                        ///About me desc
+                        Wrap(
+                          children: [
+                            CustomText(
+                              text: AppConstants.aboutMe,
+                              textsize: 16.0,
+                              color: AppColor.grey,
+                              letterSpacing: 0.75,
+                            ),
+                            CustomText(
+                              text: AppConstants.resultOriented,
+                              textsize: 16.0,
+                              color: AppColor.grey,
+                              letterSpacing: 0.75,
+                            ),
+                            SizedBox(height: context.height * 0.2),
+                            CustomText(
+                              text:
+                                  "Here are a few technologies I've been working with recently:\n\n",
+                              textsize: 16.0,
+                              color: AppColor.grey,
+                              // fontWeight: FontWeight.w500,
+                              letterSpacing: 0.75,
+                            ),
+                          ],
+                        ),
+
+                        ///technologies.....
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  technology(context, "Dart"),
+                                  technology(context, "Java"),
+                                  technology(context, "Kotlin"),
+                                  technology(context, "Java Script"),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  technology(context, "Agora"),
+                                  technology(context, "Google Maps"),
+                                  technology(context, "Firebase"),
+                                  technology(context, "Rest Apis"),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  ///Profile Image
+                  Flexible(
+                    child: SizedBox(
+                      height: context.height / 1.5,
+                      width: context.width / 2 - 100,
+                      // color: Colors.white,
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Positioned(
+                            top: context.height * 0.12,
+                            left: context.width * 0.120,
+                            child: Card(
+                              color: AppColor.lightBlue,
+                              child: Container(
+                                margin: EdgeInsets.all(2.75),
+                                height: context.height / 2,
+                                width: context.width / 5,
+                                color: AppColor.primaryColor,
+                              ),
+                            ),
+                          ),
+                          const CustomImageAnimation()
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            : Column(
+                children: [
+                  ///Profile Image
+                  SizedBox(height: context.height * 0.07),
+                  SizedBox(
+                      width: 2000.w,
+                      height: 300.h,
+                      child: Image.asset(
+                        'assets/images/bg4.png',
+                        fit: BoxFit.fill,
+                      )),
                   SizedBox(height: context.height * 0.07),
 
                   ///About me desc
                   Wrap(
                     children: [
-                      const CustomText(
+                      CustomText(
                         text: AppConstants.aboutMe,
                         textsize: 16.0,
-                        color: const Color(0xff828DAA),
+                        color: AppColor.grey,
                         letterSpacing: 0.75,
                       ),
-                      const CustomText(
+                      CustomText(
                         text: AppConstants.resultOriented,
                         textsize: 16.0,
-                        color: Color(0xff828DAA),
+                        color: AppColor.grey,
                         letterSpacing: 0.75,
                       ),
                       SizedBox(height: context.height * 0.2),
-                      const CustomText(
+                      CustomText(
                         text:
                             "Here are a few technologies I've been working with recently:\n\n",
                         textsize: 16.0,
-                        color: Color(0xff828DAA),
+                        color: AppColor.grey,
                         // fontWeight: FontWeight.w500,
                         letterSpacing: 0.75,
                       ),
@@ -127,37 +234,6 @@ class AboutMePage extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-
-            ///Profile Image
-            Flexible(
-              child: SizedBox(
-                height: context.height / 1.5,
-                width: context.width / 2 - 100,
-                // color: Colors.white,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Positioned(
-                      top: context.height * 0.12,
-                      left: context.width * 0.120,
-                      child: Card(
-                        color: Color(0xff61F9D5),
-                        child: Container(
-                          margin: EdgeInsets.all(2.75),
-                          height: context.height / 2,
-                          width: context.width / 5,
-                          color: Color(0xff0A192F),
-                        ),
-                      ),
-                    ),
-                    const CustomImageAnimation()
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
       ],
     );
   }
@@ -216,7 +292,7 @@ class _CustomImageAnimationState extends State<CustomImageAnimation> {
             width: size.width / 5,
             color: Colors.black54,
             child: const Image(
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
               image: AssetImage('assets/images/bg4.png'),
             ),
           ),

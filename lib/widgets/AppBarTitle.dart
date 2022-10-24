@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:portfolio/common/app_colors.dart';
 
 class AppBarTitle extends StatelessWidget {
   final String text;
+  dynamic onTap;
 
   //final Function ontab;
 
-  const AppBarTitle({Key? key, required this.text}) : super(key: key);
+  AppBarTitle({Key? key, required this.text, required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 14.0,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          vertical: 10.h,
         ),
         child: Text(
           text,
           textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 14.0,
+          style: TextStyle(
+            fontSize: 26.sp,
             letterSpacing: 3.0,
-            color: Color(0xffBAD0D0),
+            color: AppColor.grey,
           ),
         ),
       ),
