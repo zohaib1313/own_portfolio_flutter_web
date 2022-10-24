@@ -45,14 +45,12 @@ class MyProjects extends StatelessWidget {
             alignment: WrapAlignment.center,
             children: [
               FeatureProject(
-                  imagePath: [
+                  imagePath: const [
                     "assets/images/bg4.png",
                     "assets/images/bg4.png",
                     "assets/images/bg4.png"
                   ],
-                  onTap: () {
-                    print('on tapg');
-                  },
+                  onTap: () {},
                   projectDesc:
                       "A Mobile app for both Android and IOS. View your Status, Chat, and call history. The purpose of this projcet is to Learn Flutter complex UI Design.",
                   projectTitle: "WhatsaApp UI Clone",

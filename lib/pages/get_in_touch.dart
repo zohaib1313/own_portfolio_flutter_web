@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
+import '../common/Method.dart';
 import '../widgets/customText.dart';
 
 class GetInTouch extends StatelessWidget {
@@ -19,10 +19,10 @@ class GetInTouch extends StatelessWidget {
               color: Color(0xff41FBDA),
               letterSpacing: 3.0,
             ),
-            SizedBox(
+            const SizedBox(
               height: 16.0,
             ),
-            CustomText(
+            const CustomText(
               text: "Get In Touch",
               textsize: 42.0,
               color: Colors.white,
@@ -45,30 +45,30 @@ class GetInTouch extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 32.0,
             ),
             InkWell(
               onTap: () {
-                //method.launchEmail();
+                Method.launchEmail();
               },
               child: Card(
                 elevation: 4.0,
-                color: Color(0xff64FFDA),
+                color: const Color(0xff64FFDA),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(6.0),
                 ),
                 child: Container(
-                  margin: EdgeInsets.all(0.85),
+                  margin: const EdgeInsets.all(0.85),
                   height: 80.h,
                   width: 500.w,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color(0xff0A192F),
+                    color: const Color(0xff0A192F),
                     borderRadius: BorderRadius.circular(6.0),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(
                       horizontal: 8.0,
                     ),
                     child: Text(

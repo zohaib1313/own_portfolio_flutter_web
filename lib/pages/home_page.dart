@@ -3,10 +3,13 @@ import 'dart:ui';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_getx_widget.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
+import 'package:portfolio/common/Method.dart';
 import 'package:portfolio/common/app_colors.dart';
 import 'package:portfolio/pages/get_in_touch.dart';
 import 'package:portfolio/pages/my_projects.dart';
@@ -28,40 +31,6 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    final actions = [
-      Expanded(
-        child: AppBarTitle(
-          text: 'About',
-          onTap: () {
-            controller.scrollrToIndex(index: 0);
-          },
-        ),
-      ),
-      Expanded(
-        child: AppBarTitle(
-          text: 'Experience',
-          onTap: () {
-            controller.scrollrToIndex(index: 1);
-          },
-        ),
-      ),
-      Expanded(
-        child: AppBarTitle(
-          text: 'Project',
-          onTap: () {
-            controller.scrollrToIndex(index: 2);
-          },
-        ),
-      ),
-      Expanded(
-        child: AppBarTitle(
-          text: 'Contact',
-          onTap: () {
-            controller.scrollrToIndex(index: 3);
-          },
-        ),
-      ),
-    ];
     return GetX<HomeController>(
       initState: (state) {},
       builder: (_) {
@@ -69,11 +38,189 @@ class HomePage extends GetView<HomeController> {
         return Scaffold(
           backgroundColor: AppColor.primaryColor,
           drawer: Container(
-            width: context.width * 0.9,
+            width: context.width * 0.6,
             color: AppColor.primaryColor,
             margin: const EdgeInsets.symmetric(vertical: 30),
             padding: const EdgeInsets.symmetric(vertical: 30),
-            child: Column(children: actions),
+            child: Builder(builder: (context) {
+              return ListView(children: [
+                InkWell(
+                  onTap: () {
+                    Method.launchURL(
+                        'https://drive.google.com/file/d/1q45UImfAvgDSlKAyhJOHpx9NkaKPrVI3/view?usp=sharing');
+                    Scaffold.of(context).closeDrawer();
+                  },
+                  child: Card(
+                    color: AppColor.greenColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(6),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: const [
+                          Expanded(
+                            child: CustomText(
+                                text: 'Resume',
+                                textsize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: AppColor.primaryColor),
+                          ),
+                          FaIcon(
+                            FontAwesomeIcons.download,
+                            color: AppColor.primaryColor,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Method.launchURL('https://github.com/zohaib1313');
+                    Scaffold.of(context).closeDrawer();
+                  },
+                  child: Card(
+                    color: AppColor.greenColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(6),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: const [
+                          Expanded(
+                            child: CustomText(
+                                text: 'Github',
+                                textsize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: AppColor.primaryColor),
+                          ),
+                          FaIcon(
+                            FontAwesomeIcons.github,
+                            color: AppColor.primaryColor,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Method.launchURL('https://www.fiverr.com/zohaib_778');
+                    Scaffold.of(context).closeDrawer();
+                  },
+                  child: Card(
+                    color: AppColor.greenColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(6),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: const [
+                          Expanded(
+                            child: CustomText(
+                                text: 'Fiverr',
+                                textsize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: AppColor.primaryColor),
+                          ),
+                          FaIcon(
+                            FontAwesomeIcons.five,
+                            color: AppColor.primaryColor,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Method.launchURL('https://www.linkedin.com/in/zohaib1313/');
+                    Scaffold.of(context).closeDrawer();
+                  },
+                  child: Card(
+                    color: AppColor.greenColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(6),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: const [
+                          Expanded(
+                            child: CustomText(
+                                text: 'LinkedIn',
+                                textsize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: AppColor.primaryColor),
+                          ),
+                          FaIcon(
+                            FontAwesomeIcons.linkedin,
+                            color: AppColor.primaryColor,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Method.launchEmail();
+                    Scaffold.of(context).closeDrawer();
+                  },
+                  child: Card(
+                    color: AppColor.greenColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(6),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: const [
+                          Expanded(
+                            child: CustomText(
+                                text: 'Email',
+                                textsize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: AppColor.primaryColor),
+                          ),
+                          FaIcon(
+                            FontAwesomeIcons.mailchimp,
+                            color: AppColor.primaryColor,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Method.launchCaller();
+                    Scaffold.of(context).closeDrawer();
+                  },
+                  child: Card(
+                    color: AppColor.greenColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(6),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: const [
+                          Expanded(
+                            child: CustomText(
+                                text: 'Phone : +923062196778',
+                                textsize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: AppColor.primaryColor),
+                          ),
+                          FaIcon(
+                            FontAwesomeIcons.phone,
+                            color: AppColor.primaryColor,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ]);
+            }),
           ),
           body: Builder(builder: (context) {
             return RawKeyboardListener(
@@ -115,41 +262,80 @@ class HomePage extends GetView<HomeController> {
                                       }),
                                   Expanded(
                                       child: Row(
-                                    children: actions,
+                                    children: [
+                                      Expanded(
+                                        child: AppBarTitle(
+                                          text: 'About',
+                                          onTap: () {
+                                            controller.scrollrToIndex(index: 0);
+                                          },
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: AppBarTitle(
+                                          text: 'Experience',
+                                          onTap: () {
+                                            controller.scrollrToIndex(index: 1);
+                                          },
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: AppBarTitle(
+                                          text: 'Projects',
+                                          onTap: () {
+                                            controller.scrollrToIndex(index: 2);
+                                          },
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: AppBarTitle(
+                                          text: 'Contact',
+                                          onTap: () {
+                                            controller.scrollrToIndex(index: 3);
+                                          },
+                                        ),
+                                      ),
+                                    ],
                                   )),
 
                                   ///resume....
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
                                         vertical: 16.0),
-                                    child: Card(
-                                      elevation: 4.0,
-                                      color: AppColor.lightBlue,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(6.0),
-                                      ),
-                                      child: Container(
-                                          margin: const EdgeInsets.all(0.85),
-                                          height: context.height * 0.07,
-                                          width: context.height * 0.20,
-                                          alignment: Alignment.center,
-                                          decoration: BoxDecoration(
-                                            color: const Color(0xff0A192F),
-                                            borderRadius:
-                                                BorderRadius.circular(6.0),
-                                          ),
-                                          child: const Padding(
-                                            padding: EdgeInsets.symmetric(
-                                              horizontal: 8.0,
+                                    child: InkWell(
+                                      onTap: () {
+                                        Method.launchURL(
+                                            'https://drive.google.com/file/d/1q45UImfAvgDSlKAyhJOHpx9NkaKPrVI3/view?usp=sharing');
+                                      },
+                                      child: Card(
+                                        elevation: 4.0,
+                                        color: AppColor.lightBlue,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(6.0),
+                                        ),
+                                        child: Container(
+                                            margin: const EdgeInsets.all(0.85),
+                                            height: context.height * 0.07,
+                                            width: context.height * 0.20,
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xff0A192F),
+                                              borderRadius:
+                                                  BorderRadius.circular(6.0),
                                             ),
-                                            child: Text(
-                                              "Resume",
-                                              style: TextStyle(
-                                                color: AppColor.lightBlue,
+                                            child: const Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                horizontal: 8.0,
                                               ),
-                                            ),
-                                          )),
+                                              child: Text(
+                                                "Resume",
+                                                style: TextStyle(
+                                                  color: AppColor.lightBlue,
+                                                ),
+                                              ),
+                                            )),
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -353,7 +539,7 @@ class HomePage extends GetView<HomeController> {
                                         //get in touch text
                                         InkWell(
                                           onTap: () {
-                                            // method.launchEmail();
+                                            Method.launchEmail();
                                           },
                                           hoverColor: const Color(0xff64FFDA)
                                               .withOpacity(0.2),

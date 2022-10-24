@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
+import '../common/Method.dart';
 import '../common/app_colors.dart';
 
 class SocialWidgets extends StatelessWidget {
@@ -20,30 +21,37 @@ class SocialWidgets extends StatelessWidget {
               color: AppColor.iconsColors,
               iconSize: 16.0,
               onPressed: () {
-                // method.launchURL("https://github.com/zohaib1313");
+                Method.launchURL('https://github.com/zohaib1313');
               }),
           IconButton(
-            icon: FaIcon(FontAwesomeIcons.linkedin),
+            icon: const FaIcon(FontAwesomeIcons.linkedin),
             color: AppColor.iconsColors,
             onPressed: () {
-              /*   method.launchURL(
-                                        "https://www.linkedin.com/in/zohaib1313/");*/
+              Method.launchURL('https://www.linkedin.com/in/zohaib1313/');
             },
             iconSize: 16.0,
           ),
           IconButton(
-              icon: Icon(Icons.call),
+            icon: const FaIcon(FontAwesomeIcons.freebsd),
+            color: AppColor.iconsColors,
+            onPressed: () {
+              Method.launchURL('https://www.fiverr.com/zohaib_778');
+            },
+            iconSize: 16.0,
+          ),
+          IconButton(
+              icon: const Icon(Icons.call),
               color: AppColor.iconsColors,
               iconSize: 16.0,
               onPressed: () {
-                // method.launchCaller();
+                Method.launchCaller();
               }),
           IconButton(
-              icon: Icon(Icons.mail),
+              icon: const Icon(Icons.mail),
               color: AppColor.iconsColors,
               iconSize: 16.0,
               onPressed: () {
-                // method.launchEmail();
+                Method.launchEmail();
               }),
           Padding(
             padding: const EdgeInsets.only(top: 16.0),

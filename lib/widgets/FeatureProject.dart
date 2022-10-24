@@ -39,7 +39,7 @@ class FeatureProject extends StatelessWidget {
           margin: const EdgeInsets.all(30),
           height: context.height * 0.30,
           width:
-              context.width > 720 ? context.width * 0.20 : context.width * 0.9,
+              context.width > 720 ? context.width * 0.30 : context.width * 0.9,
           child: FlipCard(
             fill: Fill.fillBack,
             key: cardKey,
@@ -49,7 +49,7 @@ class FeatureProject extends StatelessWidget {
                     .map((e) => Image.asset(
                         height: context.height * 0.30,
                         width: context.width > 720
-                            ? context.width * 0.20
+                            ? context.width * 0.29
                             : context.width * 0.9,
                         fit: BoxFit.fill,
                         e))
@@ -72,14 +72,12 @@ class FeatureProject extends StatelessWidget {
               padding: const EdgeInsets.all(6),
               child: Column(
                 children: [
-                  Flexible(
-                    child: Text(
-                      projectTitle,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                      style: AppTextStyles.textStyleBoldBodyXSmall
-                          .copyWith(fontSize: 18, color: Colors.white70),
-                    ),
+                  Text(
+                    projectTitle,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    style: AppTextStyles.textStyleBoldBodyXSmall
+                        .copyWith(fontSize: 18, color: Colors.white70),
                   ),
                   Text(
                     projectDesc,
