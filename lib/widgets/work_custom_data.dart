@@ -22,6 +22,9 @@ class WorkCustomData extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
+        const SizedBox(
+          height: 16.0,
+        ),
         Text(
           title,
           style: TextStyle(
@@ -55,19 +58,20 @@ class WorkCustomData extends StatelessWidget {
           ],
         ),
         const SizedBox(
-          height: 6.0,
+          height: 10.0,
         ),
-        Flexible(
-          child: StyledText(
-            text: subTitle,
-            overflow: TextOverflow.visible,
-            newLineAsBreaks: true,
-            style: TextStyle(
-              fontSize: 13.0,
-              color: AppColor.grey,
-              fontWeight: FontWeight.w600,
-            ),
+        StyledText(
+          text: subTitle,
+          overflow: TextOverflow.visible,
+          newLineAsBreaks: true,
+          style: TextStyle(
+            fontSize: 13.0,
+            color: AppColor.grey,
+            fontWeight: FontWeight.w600,
           ),
+        ),
+        const SizedBox(
+          height: 16.0,
         ),
       ],
     );

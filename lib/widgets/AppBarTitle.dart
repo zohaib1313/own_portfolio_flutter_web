@@ -23,7 +23,7 @@ class AppBarTitle extends StatelessWidget {
           text,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 26.sp,
+            fontSize: 26,
             letterSpacing: 3.0,
             color: AppColor.grey,
           ),

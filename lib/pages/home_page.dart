@@ -28,187 +28,272 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    final actions = [
+      Expanded(
+        child: AppBarTitle(
+          text: 'About',
+          onTap: () {
+            controller.scrollrToIndex(index: 0);
+          },
+        ),
+      ),
+      Expanded(
+        child: AppBarTitle(
+          text: 'Experience',
+          onTap: () {
+            controller.scrollrToIndex(index: 1);
+          },
+        ),
+      ),
+      Expanded(
+        child: AppBarTitle(
+          text: 'Project',
+          onTap: () {
+            controller.scrollrToIndex(index: 2);
+          },
+        ),
+      ),
+      Expanded(
+        child: AppBarTitle(
+          text: 'Contact',
+          onTap: () {
+            controller.scrollrToIndex(index: 3);
+          },
+        ),
+      ),
+    ];
     return GetX<HomeController>(
       initState: (state) {},
       builder: (_) {
         controller.isLoading.value;
         return Scaffold(
           backgroundColor: AppColor.primaryColor,
-          body: /*context.width < 720
-              ? Container(
-                  child: Center(
-                    child: Text(
-                      'not setup for mobile..',
-                      style: AppTextStyles.textStyleNormalBodyXSmall
-                          .copyWith(color: AppColor.lightBlue),
-                    ),
-                  ),
-                )
-              :*/
-              RawKeyboardListener(
-            autofocus: true,
-            focusNode: _focusNode,
-            onKey: controller.handleKeyEvent,
-            child: SafeArea(
-              child: Container(
-                //   decoration: AppStyles.cardBoxDecoration,
-                margin: const EdgeInsets.all(10),
-                child: ShowUpAnimation(
-                  delayStart: const Duration(microseconds: 0),
-                  animationDuration: const Duration(milliseconds: 500),
-                  curve: Curves.linear,
-                  direction: Direction.horizontal,
-                  offset: 0.3,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      //  if (context.width > 720)
-                      SizedBox(
-                        height: context.height * 0.14,
-                        width: context.width,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                          child: Row(
-                            children: [
-                              IconButton(
-                                  icon: const Icon(
-                                    Icons.change_history,
-                                    size: 26,
-                                    color: AppColor.lightBlue,
-                                  ),
-                                  onPressed: () {}),
-//                            if (context.width < 780) const Spacer(),
-                              Expanded(
-                                  child: Row(
+          drawer: Container(
+            width: context.width * 0.9,
+            color: AppColor.primaryColor,
+            margin: const EdgeInsets.symmetric(vertical: 30),
+            padding: const EdgeInsets.symmetric(vertical: 30),
+            child: Column(children: actions),
+          ),
+          body: Builder(builder: (context) {
+            return RawKeyboardListener(
+              autofocus: true,
+              focusNode: _focusNode,
+              onKey: controller.handleKeyEvent,
+              child: SafeArea(
+                child: Container(
+                  //   decoration: AppStyles.cardBoxDecoration,
+                  margin: const EdgeInsets.all(10),
+                  child: ShowUpAnimation(
+                    delayStart: const Duration(microseconds: 0),
+                    animationDuration: const Duration(milliseconds: 500),
+                    curve: Curves.linear,
+                    direction: Direction.horizontal,
+                    offset: 0.3,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        if (context.width > 720)
+                          SizedBox(
+                            height: context.height * 0.14,
+                            width: context.width,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: Row(
                                 children: [
+                                  IconButton(
+                                      icon: const Icon(
+                                        Icons.change_history,
+                                        size: 26,
+                                        color: AppColor.lightBlue,
+                                      ),
+                                      onPressed: () {
+                                        controller.scrollrToIndex(index: -1);
+                                      }),
                                   Expanded(
-                                    child: AppBarTitle(
-                                      text: 'About',
-                                      onTap: () {
-                                        controller.scrollrToIndex(index: 0);
-                                      },
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: AppBarTitle(
-                                      text: 'Experience',
-                                      onTap: () {
-                                        controller.scrollrToIndex(index: 1);
-                                      },
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: AppBarTitle(
-                                      text: 'Project',
-                                      onTap: () {
-                                        controller.scrollrToIndex(index: 2);
-                                      },
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: AppBarTitle(
-                                      text: 'Contact',
-                                      onTap: () {
-                                        controller.scrollrToIndex(index: 3);
-                                      },
-                                    ),
-                                  ),
-                                ],
-                              )),
+                                      child: Row(
+                                    children: actions,
+                                  )),
 
-                              ///resume....
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 16.0),
-                                child: Card(
-                                  elevation: 4.0,
-                                  color: AppColor.lightBlue,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(6.0),
-                                  ),
-                                  child: Container(
-                                      margin: const EdgeInsets.all(0.85),
-                                      height: context.height * 0.07,
-                                      width: context.height * 0.20,
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xff0A192F),
+                                  ///resume....
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 16.0),
+                                    child: Card(
+                                      elevation: 4.0,
+                                      color: AppColor.lightBlue,
+                                      shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(6.0),
                                       ),
-                                      child: const Padding(
-                                        padding: EdgeInsets.symmetric(
-                                          horizontal: 8.0,
-                                        ),
-                                        child: Text(
-                                          "Resume",
-                                          style: TextStyle(
+                                      child: Container(
+                                          margin: const EdgeInsets.all(0.85),
+                                          height: context.height * 0.07,
+                                          width: context.height * 0.20,
+                                          alignment: Alignment.center,
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xff0A192F),
+                                            borderRadius:
+                                                BorderRadius.circular(6.0),
+                                          ),
+                                          child: const Padding(
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal: 8.0,
+                                            ),
+                                            child: Text(
+                                              "Resume",
+                                              style: TextStyle(
+                                                color: AppColor.lightBlue,
+                                              ),
+                                            ),
+                                          )),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        Expanded(
+                          child: Row(
+                            children: [
+                              if (context.width > 720)
+                                const Flexible(child: SocialWidgets()),
+                              Expanded(
+                                flex: 18,
+                                child: ScrollConfiguration(
+                                  behavior:
+                                      ScrollConfiguration.of(context).copyWith(
+                                    dragDevices: {
+                                      PointerDeviceKind.touch,
+                                      PointerDeviceKind.mouse,
+                                      PointerDeviceKind.stylus,
+                                      PointerDeviceKind.unknown,
+                                      PointerDeviceKind.invertedStylus,
+                                    },
+                                  ),
+                                  child: SingleChildScrollView(
+                                    controller: controller.webSmoothController,
+                                    physics:
+                                        const AlwaysScrollableScrollPhysics(),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        (context.width > 720)
+                                            ? const SizedBox(height: 6.0)
+                                            : Column(
+                                                children: [
+                                                  InkWell(
+                                                    onTap: () {
+                                                      Scaffold.of(context)
+                                                          .openDrawer();
+                                                    },
+                                                    child: SizedBox(
+                                                      height: 100.h,
+                                                      child: const Icon(
+                                                        Icons.menu,
+                                                        color:
+                                                            AppColor.lightBlue,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  const SizedBox(height: 16.0)
+                                                ],
+                                              ),
+                                        _wrapScrollTag(
+                                          index: -1,
+                                          child: const CustomText(
+                                            text: "Hi, my name is",
+                                            textsize: 16.0,
                                             color: AppColor.lightBlue,
+                                            letterSpacing: 3.0,
                                           ),
                                         ),
-                                      )),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Row(
-                          children: [
-                            const Flexible(child: SocialWidgets()),
-                            Expanded(
-                              flex: 18,
-                              child: ScrollConfiguration(
-                                behavior:
-                                    ScrollConfiguration.of(context).copyWith(
-                                  dragDevices: {
-                                    PointerDeviceKind.touch,
-                                    PointerDeviceKind.mouse,
-                                    PointerDeviceKind.stylus,
-                                    PointerDeviceKind.unknown,
-                                    PointerDeviceKind.invertedStylus,
-                                  },
-                                ),
-                                child: SingleChildScrollView(
-                                  controller: controller.webSmoothController,
-                                  physics:
-                                      const AlwaysScrollableScrollPhysics(),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const CustomText(
-                                        text: "Hi, my name is",
-                                        textsize: 16.0,
-                                        color: AppColor.lightBlue,
-                                        letterSpacing: 3.0,
-                                      ),
-                                      const SizedBox(height: 6.0),
-                                      CustomText(
-                                        text: "MUHAMMAD ZOHAIB",
-                                        textsize: 130.r,
-                                        color: AppColor.whiteColor,
-                                        fontWeight: FontWeight.w900,
-                                      ),
-                                      const SizedBox(height: 4.0),
-                                      (context.width > 720)
-                                          ? Row(
-                                              children: [
-                                                Flexible(
-                                                  child: CustomText(
+                                        const SizedBox(height: 6.0),
+                                        CustomText(
+                                          text: "MUHAMMAD ZOHAIB",
+                                          textsize: 130.r,
+                                          color: AppColor.whiteColor,
+                                          fontWeight: FontWeight.w900,
+                                        ),
+                                        const SizedBox(height: 4.0),
+                                        (context.width > 720)
+                                            ? Row(
+                                                children: [
+                                                  Flexible(
+                                                    child: CustomText(
+                                                      text:
+                                                          "I BUILD THINGS FOR ",
+                                                      textsize: 80.sp,
+                                                      color: AppColor.whiteColor
+                                                          .withOpacity(0.6),
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                    ),
+                                                  ),
+                                                  Flexible(
+                                                    child: Container(
+                                                      height:
+                                                          context.height * 0.09,
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 8.0),
+                                                      child: DefaultTextStyle(
+                                                        softWrap: true,
+                                                        style: AppTextStyles
+                                                            .textStyleBoldBodyMedium
+                                                            .copyWith(
+                                                          fontSize: 50.sp,
+                                                          color: AppColor
+                                                              .lightBlue,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                        ),
+                                                        child: AnimatedTextKit(
+                                                          isRepeatingAnimation:
+                                                              true,
+                                                          repeatForever: true,
+                                                          animatedTexts: [
+                                                            RotateAnimatedText(
+                                                                'ANDROID (FLUTTER)'),
+                                                            RotateAnimatedText(
+                                                                'IOS (FLUTTER)'),
+                                                            RotateAnimatedText(
+                                                                'WEB (FLUTTER)'),
+                                                            RotateAnimatedText(
+                                                                'DESKTOP (FLUTTER)'),
+                                                            RotateAnimatedText(
+                                                                'ANDROID (NATIVE)'),
+                                                            RotateAnimatedText(
+                                                                'NODE EXPRESS'),
+                                                          ],
+                                                          onTap: () {},
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                            : Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  CustomText(
                                                     text: "I BUILD THINGS FOR ",
-                                                    textsize: 80.sp,
-                                                    color: AppColor.whiteColor
-                                                        .withOpacity(0.6),
+                                                    textsize: 130.r,
+                                                    color:
+                                                        const Color(0xffCCD6F6)
+                                                            .withOpacity(0.6),
                                                     fontWeight: FontWeight.w700,
                                                   ),
-                                                ),
-                                                Flexible(
-                                                  child: Container(
+                                                  Container(
                                                     height:
                                                         context.height * 0.09,
                                                     padding:
@@ -219,7 +304,7 @@ class HomePage extends GetView<HomeController> {
                                                       style: AppTextStyles
                                                           .textStyleBoldBodyMedium
                                                           .copyWith(
-                                                        fontSize: 50.sp,
+                                                        fontSize: 30,
                                                         color:
                                                             AppColor.lightBlue,
                                                         fontWeight:
@@ -247,166 +332,116 @@ class HomePage extends GetView<HomeController> {
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
-                                            )
-                                          : Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                CustomText(
-                                                  text: "I BUILD THINGS FOR ",
-                                                  textsize: 130.r,
-                                                  color: const Color(0xffCCD6F6)
-                                                      .withOpacity(0.6),
-                                                  fontWeight: FontWeight.w700,
-                                                ),
-                                                Container(
-                                                  height: context.height * 0.09,
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 8.0),
-                                                  child: DefaultTextStyle(
-                                                    softWrap: true,
-                                                    style: AppTextStyles
-                                                        .textStyleBoldBodyMedium
-                                                        .copyWith(
-                                                      fontSize: 56.r,
-                                                      color: AppColor.lightBlue,
-                                                      fontWeight:
-                                                          FontWeight.w700,
-                                                    ),
-                                                    child: AnimatedTextKit(
-                                                      isRepeatingAnimation:
-                                                          true,
-                                                      repeatForever: true,
-                                                      animatedTexts: [
-                                                        RotateAnimatedText(
-                                                            'ANDROID (FLUTTER)'),
-                                                        RotateAnimatedText(
-                                                            'IOS (FLUTTER)'),
-                                                        RotateAnimatedText(
-                                                            'WEB (FLUTTER)'),
-                                                        RotateAnimatedText(
-                                                            'DESKTOP (FLUTTER)'),
-                                                        RotateAnimatedText(
-                                                            'ANDROID (NATIVE)'),
-                                                        RotateAnimatedText(
-                                                            'NODE EXPRESS'),
-                                                      ],
-                                                      onTap: () {},
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
+                                        SizedBox(height: context.height * .04),
+                                        Wrap(
+                                          children: [
+                                            Text(
+                                              AppConstants.subTitle,
+                                              style: TextStyle(
+                                                color: AppColor.grey,
+                                                fontSize: 16.0,
+                                                letterSpacing: 2.75,
+                                                wordSpacing: 0.75,
+                                              ),
                                             ),
-                                      SizedBox(height: context.height * .04),
-                                      Wrap(
-                                        children: [
-                                          Text(
-                                            AppConstants.subTitle,
-                                            style: TextStyle(
-                                              color: AppColor.grey,
-                                              fontSize: 16.0,
-                                              letterSpacing: 2.75,
-                                              wordSpacing: 0.75,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: context.height * .12),
+                                          ],
+                                        ),
+                                        SizedBox(height: context.height * .10),
 
-                                      //get in touch text
-                                      InkWell(
-                                        onTap: () {
-                                          // method.launchEmail();
-                                        },
-                                        hoverColor: const Color(0xff64FFDA)
-                                            .withOpacity(0.2),
-                                        borderRadius:
-                                            BorderRadius.circular(4.0),
-                                        child: Container(
-                                          alignment: Alignment.center,
-                                          height: context.height * 0.09,
-                                          width: context.width * 0.14,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: AppColor.lightBlue,
+                                        //get in touch text
+                                        InkWell(
+                                          onTap: () {
+                                            // method.launchEmail();
+                                          },
+                                          hoverColor: const Color(0xff64FFDA)
+                                              .withOpacity(0.2),
+                                          borderRadius:
+                                              BorderRadius.circular(4.0),
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            height: 80.h,
+                                            width: 530.w,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: AppColor.lightBlue,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(4.0),
                                             ),
-                                            borderRadius:
-                                                BorderRadius.circular(4.0),
-                                          ),
-                                          child: Text(
-                                            "Get In Touch",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              color: AppColor.lightBlue,
-                                              letterSpacing: 1.75,
-                                              wordSpacing: 1.0,
-                                              fontSize: 26.sp,
+                                            child: const Text(
+                                              "Get In Touch",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                color: AppColor.lightBlue,
+                                                letterSpacing: 1.75,
+                                                wordSpacing: 1.0,
+                                                fontSize: 12,
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
 
-                                      SizedBox(height: context.height * .12),
+                                        SizedBox(height: context.height * .12),
 
-                                      _wrapScrollTag(
-                                          index: 0, child: const AboutMePage()),
-                                      SizedBox(height: context.height * .12),
+                                        _wrapScrollTag(
+                                            index: 0,
+                                            child: const AboutMePage()),
+                                        SizedBox(height: context.height * .12),
 
-                                      _wrapScrollTag(
-                                          index: 1,
-                                          child: const WorkExperiencePage()),
-                                      _wrapScrollTag(
-                                          index: 2, child: const MyProjects()),
-
-                                      _wrapScrollTag(
-                                        index: 3,
-                                        child: const GetInTouch(),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                                child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                RotatedBox(
-                                  quarterTurns: 45,
-                                  child: Text(
-                                    "mianzohaibiftikhar@gmail.com",
-                                    style: TextStyle(
-                                      color: Colors.grey.withOpacity(0.6),
-                                      letterSpacing: 3.0,
-                                      fontWeight: FontWeight.w700,
+                                        _wrapScrollTag(
+                                            index: 1,
+                                            child: const WorkExperiencePage()),
+                                        _wrapScrollTag(
+                                            index: 2,
+                                            child: const MyProjects()),
+                                        _wrapScrollTag(
+                                          index: 3,
+                                          child: const GetInTouch(),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 16.0),
-                                  child: Container(
-                                    height: 100,
-                                    width: 2,
-                                    color: const Color(0xffCCD6F6)
-                                        .withOpacity(0.5),
-                                  ),
-                                ),
-                              ],
-                            )),
-                          ],
+                              ),
+                              if (context.width > 720)
+                                Flexible(
+                                    child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    RotatedBox(
+                                      quarterTurns: 45,
+                                      child: Text(
+                                        "mianzohaibiftikhar@gmail.com",
+                                        style: TextStyle(
+                                          color: Colors.grey.withOpacity(0.6),
+                                          letterSpacing: 3.0,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 16.0),
+                                      child: Container(
+                                        height: 100,
+                                        width: 2,
+                                        color: const Color(0xffCCD6F6)
+                                            .withOpacity(0.5),
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
+            );
+          }),
         );
       },
     );

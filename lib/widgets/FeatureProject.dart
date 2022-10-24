@@ -39,7 +39,7 @@ class FeatureProject extends StatelessWidget {
           margin: const EdgeInsets.all(30),
           height: context.height * 0.30,
           width:
-              context.width > 720 ? context.width * 0.20 : context.width * 0.5,
+              context.width > 720 ? context.width * 0.20 : context.width * 0.9,
           child: FlipCard(
             fill: Fill.fillBack,
             key: cardKey,
@@ -50,7 +50,7 @@ class FeatureProject extends StatelessWidget {
                         height: context.height * 0.30,
                         width: context.width > 720
                             ? context.width * 0.20
-                            : context.width * 0.5,
+                            : context.width * 0.9,
                         fit: BoxFit.fill,
                         e))
                     .toList(),
@@ -64,7 +64,7 @@ class FeatureProject extends StatelessWidget {
                   autoPlayAnimationDuration: Duration(
                       milliseconds: Random().nextInt(1000 - 300) + 200),
                   autoPlayCurve: Curves.fastOutSlowIn,
-                  enlargeCenterPage: false,
+                  enlargeCenterPage: true,
                   scrollDirection: Axis.horizontal,
                 )),
             back: Container(
@@ -77,17 +77,16 @@ class FeatureProject extends StatelessWidget {
                       projectTitle,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
-                      style: AppTextStyles.textStyleBoldBodyXSmall.copyWith(
-                          fontSize: context.height * 0.04,
-                          color: Colors.white70),
+                      style: AppTextStyles.textStyleBoldBodyXSmall
+                          .copyWith(fontSize: 18, color: Colors.white70),
                     ),
                   ),
                   Text(
                     projectDesc,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 4,
-                    style: AppTextStyles.textStyleNormalBodyXSmall.copyWith(
-                        fontSize: context.height * 0.02, color: Colors.white70),
+                    style: AppTextStyles.textStyleNormalBodyXSmall
+                        .copyWith(fontSize: 16, color: Colors.white70),
                   ),
                   Flexible(
                     child: Wrap(
@@ -123,148 +122,5 @@ class FeatureProject extends StatelessWidget {
             ),
           )),
     );
-
-    //   Container(
-    //   height: size.height / 0.999,
-    //   width: size.width - 100,
-    //   //color: Colors.tealAccent,
-    //   child: Column(
-    //     children: [
-    //       Container(
-    //         height: size.height - 100,
-    //         width: size.width - 84,
-    //         child: Stack(
-    //           children: [
-    //             //Image
-    //             Positioned(
-    //               top: size.height * 0.02,
-    //               left: 20.0,
-    //               child: Container(
-    //                 height: size.height * 0.60,
-    //                 width: size.width * 0.5,
-    //                 //color: Colors.redAccent,
-    //                 child: Image(
-    //                   fit: BoxFit.cover,
-    //                   image: AssetImage(imagePath),
-    //                 ),
-    //               ),
-    //             ),
-    //
-    //             // Short Desc
-    //             Positioned(
-    //               top: size.height / 6,
-    //               right: 10.0,
-    //               child: Container(
-    //                 alignment: Alignment.center,
-    //                 height: size.height * 0.18,
-    //                 width: size.width * 0.35,
-    //                 color: Color(0xff172A45),
-    //                 child: Wrap(
-    //                   alignment: WrapAlignment.center,
-    //                   children: [
-    //                     Padding(
-    //                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-    //                       child: CustomText(
-    //                         text: projectDesc,
-    //                         textsize: 16.0,
-    //                         color: Colors.white.withOpacity(0.4),
-    //                         letterSpacing: 0.75,
-    //                       ),
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //             ),
-    //
-    //             // Project Tiitle
-    //             Positioned(
-    //               top: 16.0,
-    //               right: 10.0,
-    //               child: Container(
-    //                 height: size.height * 0.10,
-    //                 width: size.width * 0.25,
-    //                 //color: Colors.indigo,
-    //                 child: Wrap(
-    //                   // mainAxisAlignment: MainAxisAlignment.end,
-    //                   alignment: WrapAlignment.end,
-    //                   children: [
-    //                     CustomText(
-    //                       text: projectTitle,
-    //                       textsize: 27,
-    //                       color: Colors.grey,
-    //                       fontWeight: FontWeight.w700,
-    //                       letterSpacing: 1.75,
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //             ),
-    //
-    //             // Project Resources
-    //             Positioned(
-    //               top: size.height * 0.36,
-    //               right: 10.0,
-    //               child: Container(
-    //                 height: size.height * 0.08,
-    //                 width: size.width * 0.25,
-    //                 // color: Colors.indigo,
-    //                 child: Row(
-    //                   mainAxisAlignment: MainAxisAlignment.end,
-    //                   children: [
-    //                     CustomText(
-    //                       text: tech1 == null ? "" : tech1,
-    //                       textsize: 14,
-    //                       color: Colors.grey,
-    //                       letterSpacing: 1.75,
-    //                     ),
-    //                     const SizedBox(
-    //                       width: 16.0,
-    //                     ),
-    //                     CustomText(
-    //                       text: tech2 ?? "",
-    //                       textsize: 14,
-    //                       color: Colors.grey,
-    //                       letterSpacing: 1.75,
-    //                     ),
-    //                     SizedBox(
-    //                       width: 16.0,
-    //                     ),
-    //                     CustomText(
-    //                       text: tech3 ?? "",
-    //                       textsize: 14,
-    //                       color: Colors.grey,
-    //                       letterSpacing: 1.75,
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //             ),
-    //
-    //             // Gitub Link
-    //             Positioned(
-    //               top: size.height * 0.42,
-    //               right: 10.0,
-    //               child: Container(
-    //                 height: size.height * 0.08,
-    //                 width: size.width * 0.25,
-    //                 // color: Colors.indigo,
-    //                 child: Row(
-    //                   mainAxisAlignment: MainAxisAlignment.end,
-    //                   children: [
-    //                     IconButton(
-    //                       icon: FaIcon(FontAwesomeIcons.github),
-    //                       color: Colors.white.withOpacity(0.3),
-    //                       onPressed: onTap,
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //             ),
-    //           ],
-    //         ),
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }
