@@ -38,37 +38,49 @@ class FeatureProject extends StatelessWidget {
           ///web
           margin: const EdgeInsets.all(30),
           height: context.height * 0.30,
+          color: Colors.black12.withAlpha(100),
           width:
-              context.width > 720 ? context.width * 0.30 : context.width * 0.9,
+              context.width > 720 ? context.width * 0.2 : context.width * 0.5,
           child: FlipCard(
             fill: Fill.fillBack,
             key: cardKey,
             direction: FlipDirection.VERTICAL,
-            front: CarouselSlider(
-                items: imagePath
-                    .map((e) => Image.asset(
-                        height: context.height * 0.30,
-                        width: context.width > 720
-                            ? context.width * 0.29
-                            : context.width * 0.9,
-                        fit: BoxFit.fill,
-                        e))
-                    .toList(),
-                options: CarouselOptions(
-                  initialPage: 0,
-                  enableInfiniteScroll: true,
-                  reverse: true,
-                  autoPlay: true,
-                  autoPlayInterval: Duration(
-                      milliseconds: Random().nextInt(6000 - 2000) + 2000),
-                  autoPlayAnimationDuration: Duration(
-                      milliseconds: Random().nextInt(1000 - 300) + 200),
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enlargeCenterPage: true,
-                  scrollDirection: Axis.horizontal,
-                )),
+            front: Stack(
+              alignment: Alignment.center,
+              children: [
+                CarouselSlider(
+                    items: imagePath
+                        .map((e) => Image.asset(
+                            height: context.height * 0.30,
+                            width: context.width,
+                            //fit: BoxFit.fill,
+                            e))
+                        .toList(),
+                    options: CarouselOptions(
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: true,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(
+                          milliseconds: Random().nextInt(6000 - 2000) + 2000),
+                      autoPlayAnimationDuration: Duration(
+                          milliseconds: Random().nextInt(1000 - 300) + 200),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: true,
+                      scrollDirection: Axis.horizontal,
+                    )),
+                Container(
+                  color: Colors.black12.withAlpha(5),
+                  child: Text(
+                    projectTitle,
+                    style: AppTextStyles.textStyleBoldTitleLarge
+                        .copyWith(color: Colors.white70),
+                  ),
+                ),
+              ],
+            ),
             back: Container(
-              color: Colors.indigo.withOpacity(0.5),
+              //  color: Colors.indigo.withOpacity(0.5),
               padding: const EdgeInsets.all(6),
               child: Column(
                 children: [
@@ -79,40 +91,36 @@ class FeatureProject extends StatelessWidget {
                     style: AppTextStyles.textStyleBoldBodyXSmall
                         .copyWith(fontSize: 18, color: Colors.white70),
                   ),
-                  Text(
-                    projectDesc,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 4,
-                    style: AppTextStyles.textStyleNormalBodyXSmall
-                        .copyWith(fontSize: 16, color: Colors.white70),
-                  ),
-                  Flexible(
-                    child: Wrap(
-                      children: [
-                        for (String s in tech1.split(','))
-                          Padding(
-                            padding: const EdgeInsets.all(4),
-                            child: Text(
-                              s,
-                              style: AppTextStyles.textStyleBoldBodyXSmall
-                                  .copyWith(
-                                fontSize: context.height * 0.02,
-                                color: Colors.lime,
-                              ),
-                            ),
-                          )
-                      ],
+                  Expanded(
+                    child: Text(
+                      projectDesc,
+                      style: AppTextStyles.textStyleNormalBodyXSmall
+                          .copyWith(fontSize: 12, color: Colors.white70),
                     ),
                   ),
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.all(6),
-                      child: IconButton(
-                        icon: FaIcon(FontAwesomeIcons.github,
-                            size: context.height * 0.04),
-                        color: Colors.white.withOpacity(0.3),
-                        onPressed: onTap,
-                      ),
+                  Wrap(
+                    children: [
+                      for (String s in tech1.split(','))
+                        Padding(
+                          padding: const EdgeInsets.all(4),
+                          child: Text(
+                            s,
+                            style:
+                                AppTextStyles.textStyleBoldBodyXSmall.copyWith(
+                              fontSize: context.height * 0.02,
+                              color: Colors.lime,
+                            ),
+                          ),
+                        )
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(6),
+                    child: IconButton(
+                      icon: FaIcon(FontAwesomeIcons.github,
+                          size: context.height * 0.04),
+                      color: Colors.white.withOpacity(0.3),
+                      onPressed: onTap,
                     ),
                   )
                 ],

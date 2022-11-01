@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../common/Method.dart';
 import '../widgets/FeatureProject.dart';
 import '../widgets/customText.dart';
 
@@ -46,93 +47,121 @@ class MyProjects extends StatelessWidget {
             children: [
               FeatureProject(
                   imagePath: const [
-                    "assets/images/bg4.png",
-                    "assets/images/bg4.png",
-                    "assets/images/bg4.png"
-                  ],
-                  onTap: () {},
-                  projectDesc:
-                      "A Mobile app for both Android and IOS. View your Status, Chat, and call history. The purpose of this projcet is to Learn Flutter complex UI Design.",
-                  projectTitle: "WhatsaApp UI Clone",
-                  tech1: "Flutter,Dart,Firebase"),
-              FeatureProject(
-                  imagePath: [
-                    "assets/images/bg4.png",
-                    "assets/images/bg4.png",
-                    "assets/images/bg4.png"
+                    "assets/projects/zamaKp.png",
+                    "assets/projects/zamaKp0.png",
+                    "assets/projects/zamaKp1.png",
+                    "assets/projects/zamaKp2.png",
+                    "assets/projects/zamaKp4.png",
+                    "assets/projects/zamaKp5.png",
+                    "assets/projects/zamaKp7.png",
                   ],
                   onTap: () {
-                    print('on tapg');
+                    Method.launchURL(
+                        "https://play.google.com/store/apps/details?id=com.kpexcisetaxation.zamakp&hl=en&gl=US");
                   },
                   projectDesc:
-                      "A Mobile app for both Android and IOS. View your Status, Chat, and call history. The purpose of this projcet is to Learn Flutter complex UI Design.",
-                  projectTitle: "WhatsaApp UI Clone",
-                  tech1: "Flutter,Dart,Firebase"),
+                      """Zama KP app enables you to perform all services related to Excise, Taxation and Narcotics Control Department like:
+- View vehicle registration info
+- Token tax payment
+- Dues and penalty payments""",
+                  projectTitle: "Zama Kp (Govt. KpK)",
+                  tech1: "Flutter,Dart,Biometrics"),
               FeatureProject(
-                  imagePath: [
-                    "assets/images/bg4.png",
-                    "assets/images/bg4.png",
-                    "assets/images/bg4.png"
+                  imagePath: const [
+                    "assets/projects/cs.jpg",
+                    "assets/projects/cs2.jpg",
+                    "assets/projects/cs3.jpg",
+                    "assets/projects/cs4.jpg",
+                    "assets/projects/cs5.jpg",
+                    "assets/projects/cs6.jpg",
                   ],
                   onTap: () {
-                    print('on tapg');
+                    Method.launchURL(
+                        "https://play.google.com/store/apps/details?id=com.appseen.contacts.sharing.app&hl=en&gl=US");
                   },
                   projectDesc:
-                      "A Mobile app for both Android and IOS. View your Status, Chat, and call history. The purpose of this projcet is to Learn Flutter complex UI Design.",
-                  projectTitle: "WhatsaApp UI Clone",
-                  tech1: "Flutter,Dart,Firebase"),
+                      """Share Contacts from your old phone to your new Android phone in no time with the help of contact transfer app""",
+                  projectTitle: "Contacts Sharing",
+                  tech1: "Flutter,Dart,AWS Amplify,Data store"),
               FeatureProject(
-                  imagePath: [
-                    "assets/images/bg4.png",
-                    "assets/images/bg4.png",
-                    "assets/images/bg4.png"
+                  imagePath: const [
+                    "assets/projects/dd.jpeg",
+                    "assets/projects/dd1.png",
+                    "assets/projects/dd3.png",
+                    "assets/projects/dd4.png",
+                    "assets/projects/dd5.png",
+                    "assets/projects/dd6.png",
+                    "assets/projects/dd7.png",
+                    "assets/projects/dd8.png",
+                    "assets/projects/dd9.png",
+                    "assets/projects/dd10.png",
+                    "assets/projects/dd11.png",
+                    "assets/projects/dd12.png",
+                    "assets/projects/dd13.png",
                   ],
                   onTap: () {
-                    print('on tapg');
+                    /*  Method.launchURL(
+                        "https://play.google.com/store/apps/details?id=com.appseen.contacts.sharing.app&hl=en&gl=US");
+             */
                   },
                   projectDesc:
-                      "A Mobile app for both Android and IOS. View your Status, Chat, and call history. The purpose of this projcet is to Learn Flutter complex UI Design.",
-                  projectTitle: "WhatsaApp UI Clone",
-                  tech1: "Flutter,Dart,Firebase"),
+                      """Share Contacts from your old phone to your new Android phone in no time with the help of contact transfer app""",
+                  projectTitle: "Doing Dubai",
+                  tech1: "Flutter,Dart,Dio,Firebase,Paypal"),
               FeatureProject(
-                  imagePath: [
-                    "assets/images/bg4.png",
-                    "assets/images/bg4.png",
-                    "assets/images/bg4.png"
+                  imagePath: const [
+                    "assets/projects/lg.png",
+                    "assets/projects/lg1.jpeg",
+                    "assets/projects/lg2.jpeg",
+                    "assets/projects/lg3.jpeg",
+                    "assets/projects/lg4.jpeg",
+                    "assets/projects/lg5.jpeg",
+                    "assets/projects/lg6.jpeg",
+                    "assets/projects/lg7.jpeg",
                   ],
                   onTap: () {
-                    print('on tapg');
+                    /*  Method.launchURL(
+                        "https://play.google.com/store/apps/details?id=com.appseen.contacts.sharing.app&hl=en&gl=US");
+             */
                   },
                   projectDesc:
-                      "A Mobile app for both Android and IOS. View your Status, Chat, and call history. The purpose of this projcet is to Learn Flutter complex UI Design.",
-                  projectTitle: "WhatsaApp UI Clone",
-                  tech1: "Flutter,Dart,Firebase"),
+                      "A Flutter application to monitor medical devices with beacons scanning and marking attendance integrated with rest api and push server",
+                  projectTitle: "Logic Medical",
+                  tech1: "Flutter,Dart,Dio,Paypal,Bluetooth device,Scanner"),
               FeatureProject(
-                  imagePath: [
-                    "assets/images/bg4.png",
-                    "assets/images/bg4.png",
-                    "assets/images/bg4.png"
+                  imagePath: const [
+                    "assets/projects/wa.png",
+                    "assets/projects/wa1.png",
+                    "assets/projects/wa2.png",
+                    "assets/projects/wa3.png",
+                    "assets/projects/wa4.jpeg"
                   ],
                   onTap: () {
-                    print('on tapg');
+                    /*  Method.launchURL(
+                        "https://play.google.com/store/apps/details?id=com.appseen.contacts.sharing.app&hl=en&gl=US");
+             */
                   },
                   projectDesc:
-                      "A Mobile app for both Android and IOS. View your Status, Chat, and call history. The purpose of this projcet is to Learn Flutter complex UI Design.",
-                  projectTitle: "WhatsaApp UI Clone",
-                  tech1: "Flutter,Dart,Firebase"),
+                      "Weather app to monitor in current location or on the route wherever you want to travel you will get weather along your route",
+                  projectTitle: "Route Weather",
+                  tech1: "Flutter,Dart,Dio,Open Weather, GeoLocation, Map"),
               FeatureProject(
-                  imagePath: [
-                    "assets/images/bg4.png",
-                    "assets/images/bg4.png",
-                    "assets/images/bg4.png"
+                  imagePath: const [
+                    "assets/projects/wa.png",
+                    "assets/projects/wa1.png",
+                    "assets/projects/wa2.png",
+                    "assets/projects/wa3.png",
+                    "assets/projects/wa4.jpeg"
                   ],
                   onTap: () {
-                    print('on tapg');
+                    /*  Method.launchURL(
+                        "https://play.google.com/store/apps/details?id=com.appseen.contacts.sharing.app&hl=en&gl=US");
+             */
                   },
                   projectDesc:
-                      "A Masdfsfobile app for both Android and IOS. View your Status, Chat, and call history. The purpose of this projcet is to Learn Flutter complex UI Design.A Mobile app for both Android and IOS. View your Status, Chat, and call history. The purpose of this projcet is to Learn Flutter complex UI Design.A Mobile app for both Android and IOS. View your Status, Chat, and call history. The purpose of this projcet is to Learn Flutter complex UI Design.A Mobile app for both Android and IOS. View your Status, Chat, and call history. The purpose of this projcet is to Learn Flutter complex UI Design.",
-                  projectTitle: "WhatsaApp UI Clone",
-                  tech1: "Flutter,Dart,Firebase"),
+                      "A real estate application used to sale and purchase properties and rent them out, supporting multi languages, price predictions and ML",
+                  projectTitle: "Zeerac",
+                  tech1: "Flutter,Dart,Dio,GeoLocation,Map"),
             ],
           ),
         ),
