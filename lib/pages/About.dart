@@ -146,14 +146,11 @@ class AboutMePage extends StatelessWidget {
                           Positioned(
                             top: context.height * 0.12,
                             left: context.width * 0.120,
-                            child: Card(
-                              color: AppColor.lightBlue,
-                              child: Container(
-                                margin: EdgeInsets.all(2.75),
-                                height: context.height / 2,
-                                width: context.width / 5,
-                                color: AppColor.primaryColor,
-                              ),
+                            child: Container(
+                              margin: const EdgeInsets.all(2.75),
+                              height: context.height / 2,
+                              width: context.width / 5,
+                              color: AppColor.primaryColor,
                             ),
                           ),
                           const CustomImageAnimation()
@@ -293,7 +290,7 @@ class _CustomImageAnimationState extends State<CustomImageAnimation> {
             color: Colors.black54,
             child: const Image(
               fit: BoxFit.fill,
-              image: AssetImage('assets/images/bg4.png'),
+              image: AssetImage('assets/projects/dp.jpg'),
             ),
           ),
           Container(

@@ -1,18 +1,40 @@
 import 'dart:ui';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:portfolio/pages/dashboard_page.dart';
 import 'package:portfolio/pages/splash_screen.dart';
 
 import 'common/app_routes.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApplication());
+  try {
+    await Firebase.initializeApp(
+      // Replace with actual values
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyCXjdZ5ca1rF7LXqGurQ4kAU_iabQq8KIY",
+          authDomain: "zohaib-portfolio-8cacb.firebaseapp.com",
+          projectId: "zohaib-portfolio-8cacb",
+          storageBucket: "zohaib-portfolio-8cacb.appspot.com",
+          messagingSenderId: "111314500709",
+          appId: "1:111314500709:web:eab746c67b2802a8d65a8c",
+          measurementId: "G-HPFECRDC47"),
+    );
+
+    await FirebaseFirestore.instance
+        .collection('visits')
+        .doc(DateTime.now().toString())
+        .set({"time": DateTime.now().toString()});
+  } catch (e) {
+    debugPrint("error initializing $e");
+  } finally {
+    runApp(const MyApplication());
+  }
 }
 
 class MyApplication extends StatefulWidget {
@@ -28,6 +50,7 @@ class _MyApplicationState extends State<MyApplication>
   void initState() {
     WidgetsBinding.instance.addObserver(this);
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+
     super.initState();
   }
 

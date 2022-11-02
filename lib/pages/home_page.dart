@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,6 +14,7 @@ import 'package:portfolio/common/Method.dart';
 import 'package:portfolio/common/app_colors.dart';
 import 'package:portfolio/pages/get_in_touch.dart';
 import 'package:portfolio/pages/my_projects.dart';
+import 'package:portfolio/pages/testimonial_page.dart';
 import 'package:portfolio/pages/work_experience_page.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:show_up_animation/show_up_animation.dart';
@@ -31,6 +33,10 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(const Duration(seconds: 3), () {
+      _showDialog(context);
+    });
+
     return GetX<HomeController>(
       initState: (state) {},
       builder: (_) {
@@ -360,70 +366,134 @@ class HomePage extends GetView<HomeController> {
                                       PointerDeviceKind.invertedStylus,
                                     },
                                   ),
-                                  child: SingleChildScrollView(
+                                  child: Scrollbar(
                                     controller: controller.webSmoothController,
-                                    physics:
-                                        const AlwaysScrollableScrollPhysics(),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        (context.width > 720)
-                                            ? const SizedBox(height: 6.0)
-                                            : Column(
-                                                children: [
-                                                  InkWell(
-                                                    onTap: () {
-                                                      Scaffold.of(context)
-                                                          .openDrawer();
-                                                    },
-                                                    child: SizedBox(
-                                                      height: 100.h,
-                                                      child: const Icon(
-                                                        Icons.menu,
-                                                        color:
-                                                            AppColor.lightBlue,
+                                    child: SingleChildScrollView(
+                                      controller:
+                                          controller.webSmoothController,
+                                      physics:
+                                          const AlwaysScrollableScrollPhysics(),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          (context.width > 720)
+                                              ? const SizedBox(height: 6.0)
+                                              : Column(
+                                                  children: [
+                                                    InkWell(
+                                                      onTap: () {
+                                                        Scaffold.of(context)
+                                                            .openDrawer();
+                                                      },
+                                                      child: SizedBox(
+                                                        height: 100.h,
+                                                        child: const Icon(
+                                                          Icons.menu,
+                                                          color: AppColor
+                                                              .lightBlue,
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                  const SizedBox(height: 16.0)
-                                                ],
-                                              ),
-                                        _wrapScrollTag(
-                                          index: -1,
-                                          child: const CustomText(
-                                            text: "Hi, my name is",
-                                            textsize: 16.0,
-                                            color: AppColor.lightBlue,
-                                            letterSpacing: 3.0,
+                                                    const SizedBox(height: 16.0)
+                                                  ],
+                                                ),
+                                          _wrapScrollTag(
+                                            index: -1,
+                                            child: const CustomText(
+                                              text: "Hi, my name is",
+                                              textsize: 16.0,
+                                              color: AppColor.lightBlue,
+                                              letterSpacing: 3.0,
+                                            ),
                                           ),
-                                        ),
-                                        const SizedBox(height: 6.0),
-                                        CustomText(
-                                          text: "MUHAMMAD ZOHAIB",
-                                          textsize: 130.r,
-                                          color: AppColor.whiteColor,
-                                          fontWeight: FontWeight.w900,
-                                        ),
-                                        const SizedBox(height: 4.0),
-                                        (context.width > 720)
-                                            ? Row(
-                                                children: [
-                                                  Flexible(
-                                                    child: CustomText(
+                                          const SizedBox(height: 6.0),
+                                          CustomText(
+                                            text: "MUHAMMAD ZOHAIB",
+                                            textsize: 130.r,
+                                            color: AppColor.whiteColor,
+                                            fontWeight: FontWeight.w900,
+                                          ),
+                                          const SizedBox(height: 4.0),
+                                          (context.width > 720)
+                                              ? Row(
+                                                  children: [
+                                                    Flexible(
+                                                      child: CustomText(
+                                                        text:
+                                                            "I BUILD THINGS FOR ",
+                                                        textsize: 80.sp,
+                                                        color: AppColor
+                                                            .whiteColor
+                                                            .withOpacity(0.6),
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                      ),
+                                                    ),
+                                                    Flexible(
+                                                      child: Container(
+                                                        height: context.height *
+                                                            0.09,
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                left: 8.0),
+                                                        child: DefaultTextStyle(
+                                                          softWrap: true,
+                                                          style: AppTextStyles
+                                                              .textStyleBoldBodyMedium
+                                                              .copyWith(
+                                                            fontSize: 50.sp,
+                                                            color: AppColor
+                                                                .lightBlue,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                          ),
+                                                          child:
+                                                              AnimatedTextKit(
+                                                            isRepeatingAnimation:
+                                                                true,
+                                                            repeatForever: true,
+                                                            animatedTexts: [
+                                                              RotateAnimatedText(
+                                                                  'ANDROID (FLUTTER)'),
+                                                              RotateAnimatedText(
+                                                                  'IOS (FLUTTER)'),
+                                                              RotateAnimatedText(
+                                                                  'WEB (FLUTTER)'),
+                                                              RotateAnimatedText(
+                                                                  'DESKTOP (FLUTTER)'),
+                                                              RotateAnimatedText(
+                                                                  'ANDROID (NATIVE)'),
+                                                              RotateAnimatedText(
+                                                                  'NODE EXPRESS'),
+                                                            ],
+                                                            onTap: () {},
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              : Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    CustomText(
                                                       text:
                                                           "I BUILD THINGS FOR ",
-                                                      textsize: 80.sp,
-                                                      color: AppColor.whiteColor
+                                                      textsize: 130.r,
+                                                      color: const Color(
+                                                              0xffCCD6F6)
                                                           .withOpacity(0.6),
                                                       fontWeight:
                                                           FontWeight.w700,
                                                     ),
-                                                  ),
-                                                  Flexible(
-                                                    child: Container(
+                                                    Container(
                                                       height:
                                                           context.height * 0.09,
                                                       padding:
@@ -434,7 +504,7 @@ class HomePage extends GetView<HomeController> {
                                                         style: AppTextStyles
                                                             .textStyleBoldBodyMedium
                                                             .copyWith(
-                                                          fontSize: 50.sp,
+                                                          fontSize: 30,
                                                           color: AppColor
                                                               .lightBlue,
                                                           fontWeight:
@@ -462,131 +532,81 @@ class HomePage extends GetView<HomeController> {
                                                         ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ],
-                                              )
-                                            : Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  CustomText(
-                                                    text: "I BUILD THINGS FOR ",
-                                                    textsize: 130.r,
-                                                    color:
-                                                        const Color(0xffCCD6F6)
-                                                            .withOpacity(0.6),
-                                                    fontWeight: FontWeight.w700,
-                                                  ),
-                                                  Container(
-                                                    height:
-                                                        context.height * 0.09,
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            left: 8.0),
-                                                    child: DefaultTextStyle(
-                                                      softWrap: true,
-                                                      style: AppTextStyles
-                                                          .textStyleBoldBodyMedium
-                                                          .copyWith(
-                                                        fontSize: 30,
-                                                        color:
-                                                            AppColor.lightBlue,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                      ),
-                                                      child: AnimatedTextKit(
-                                                        isRepeatingAnimation:
-                                                            true,
-                                                        repeatForever: true,
-                                                        animatedTexts: [
-                                                          RotateAnimatedText(
-                                                              'ANDROID (FLUTTER)'),
-                                                          RotateAnimatedText(
-                                                              'IOS (FLUTTER)'),
-                                                          RotateAnimatedText(
-                                                              'WEB (FLUTTER)'),
-                                                          RotateAnimatedText(
-                                                              'DESKTOP (FLUTTER)'),
-                                                          RotateAnimatedText(
-                                                              'ANDROID (NATIVE)'),
-                                                          RotateAnimatedText(
-                                                              'NODE EXPRESS'),
-                                                        ],
-                                                        onTap: () {},
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
+                                          SizedBox(
+                                              height: context.height * .04),
+                                          Wrap(
+                                            children: [
+                                              Text(
+                                                AppConstants.subTitle,
+                                                style: TextStyle(
+                                                  color: AppColor.grey,
+                                                  fontSize: 16.0,
+                                                  letterSpacing: 2.75,
+                                                  wordSpacing: 0.75,
+                                                ),
                                               ),
-                                        SizedBox(height: context.height * .04),
-                                        Wrap(
-                                          children: [
-                                            Text(
-                                              AppConstants.subTitle,
-                                              style: TextStyle(
-                                                color: AppColor.grey,
-                                                fontSize: 16.0,
-                                                letterSpacing: 2.75,
-                                                wordSpacing: 0.75,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(height: context.height * .10),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                              height: context.height * .10),
 
-                                        //get in touch text
-                                        InkWell(
-                                          onTap: () {
-                                            Method.launchEmail();
-                                          },
-                                          hoverColor: const Color(0xff64FFDA)
-                                              .withOpacity(0.2),
-                                          borderRadius:
-                                              BorderRadius.circular(4.0),
-                                          child: Container(
-                                            alignment: Alignment.center,
-                                            height: 80.h,
-                                            width: 530.w,
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                color: AppColor.lightBlue,
+                                          //get in touch text
+                                          InkWell(
+                                            onTap: () {
+                                              Method.launchEmail();
+                                            },
+                                            hoverColor: const Color(0xff64FFDA)
+                                                .withOpacity(0.2),
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              height: 80.h,
+                                              width: 530.w,
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                  color: AppColor.lightBlue,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(4.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(4.0),
-                                            ),
-                                            child: const Text(
-                                              "Get In Touch",
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                color: AppColor.lightBlue,
-                                                letterSpacing: 1.75,
-                                                wordSpacing: 1.0,
-                                                fontSize: 12,
+                                              child: const Text(
+                                                "Get In Touch",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                  color: AppColor.lightBlue,
+                                                  letterSpacing: 1.75,
+                                                  wordSpacing: 1.0,
+                                                  fontSize: 12,
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
 
-                                        SizedBox(height: context.height * .12),
+                                          SizedBox(
+                                              height: context.height * .12),
 
-                                        _wrapScrollTag(
-                                            index: 0,
-                                            child: const AboutMePage()),
-                                        SizedBox(height: context.height * .12),
+                                          _wrapScrollTag(
+                                              index: 0,
+                                              child: const AboutMePage()),
+                                          SizedBox(
+                                              height: context.height * .12),
 
-                                        _wrapScrollTag(
-                                            index: 1,
-                                            child: const WorkExperiencePage()),
-                                        _wrapScrollTag(
-                                            index: 2,
-                                            child: const MyProjects()),
-                                        _wrapScrollTag(
-                                          index: 3,
-                                          child: const GetInTouch(),
-                                        ),
-                                      ],
+                                          _wrapScrollTag(
+                                              index: 1,
+                                              child: WorkExperiencePage()),
+                                          _wrapScrollTag(
+                                              index: 2,
+                                              child: const MyProjects()),
+                                          TestimonialPage(),
+                                          _wrapScrollTag(
+                                            index: 3,
+                                            child: const GetInTouch(),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -640,5 +660,45 @@ class HomePage extends GetView<HomeController> {
       index: index,
       child: child,
     );
+  }
+
+  TextEditingController textController = TextEditingController();
+  bool isShowing = true;
+
+  void _showDialog(context) {
+    textController.clear();
+    if (isShowing) {
+      isShowing = false;
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Hi There.....!'),
+          content: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text('Tell me your name ?'),
+              TextField(controller: textController),
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+                onPressed: () async {
+                  try {
+                    if (textController.text.isNotEmpty) {
+                      FirebaseFirestore.instance
+                          .collection('names')
+                          .doc(textController.text.trim())
+                          .set({"name": DateTime.now().toString()});
+                    }
+                    Navigator.of(context).pop();
+                  } catch (e) {}
+                },
+                child: const Text('Done'))
+          ],
+        ),
+      );
+    }
   }
 }

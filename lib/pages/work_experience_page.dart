@@ -1,13 +1,46 @@
+import 'package:another_stepper/another_stepper.dart';
+import 'package:another_stepper/dto/stepper_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/common/app_colors.dart';
 
 import '../widgets/customText.dart';
 import '../widgets/work_custom_data.dart';
 
 class WorkExperiencePage extends StatelessWidget {
-  const WorkExperiencePage({Key? key}) : super(key: key);
+  WorkExperiencePage({Key? key}) : super(key: key);
+
+  List<StepperData> stepperData = [
+    StepperData(
+      title: "WEB",
+      subtitle: "HTML/CSS/PHP",
+    ),
+    StepperData(
+      title: ".NET",
+      subtitle: "C#",
+    ),
+    StepperData(
+      title: "ANDROID",
+      subtitle: "java/kotlin",
+    ),
+    StepperData(
+      title: "FLUTTER",
+      subtitle: "dart",
+    ),
+    StepperData(
+      title: "NODE EXPRESS",
+      subtitle: "java script",
+    ),
+    StepperData(
+      title: "REACT JS",
+      subtitle: "java script",
+    ),
+    StepperData(
+      title: "IOS",
+      subtitle: "swift",
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -95,20 +128,6 @@ Implementation and Testing.
 ● Design and integrate UI/UX mobile design to backend code''',
             ),
             WorkCustomData(
-              title: "CENTER OF ADVANCE SOLUTIONS (Bahwalpur,Pk)",
-              jobTitle: 'Android developer',
-              duration: "Feb 2017 - June 2019",
-              subTitle:
-                  '''● Worked as native android application developer using Java, Kotlin.
-● Developed Project Management tools in native.
-● Worked with native NDK, C++ libraries.
-● Integrating apps with third-party libraries.
-● Creating an architectural skeleton for future projects
-● Developed Android application first with SQLite before shifting to Firebase.
-● Implemented features like Image Compression, Location Services, User Authentication, Instant Messaging, and open source APIs
-● Design and integrate UI/UX mobile design to backend code''',
-            ),
-            WorkCustomData(
               title: "FIVERR",
               jobTitle: 'Mobile application developer',
               duration: "2019- present",
@@ -117,7 +136,47 @@ Implementation and Testing.
             ),
           ],
         ),
-        //     SizedBox(height: context.height * 0.07),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Container(
+                height: 1.10,
+                color: const Color(0xff303C55),
+              ),
+            ),
+            SizedBox(width: context.width * 0.02),
+            const CustomText(
+              text: "JOURNEY",
+              textsize: 26.0,
+              color: Color(0xffCCD6F6),
+              fontWeight: FontWeight.w700,
+            ),
+            SizedBox(width: context.width * 0.02),
+            Expanded(
+              child: Container(
+                height: 1.10,
+                color: const Color(0xff303C55),
+              ),
+            ),
+          ],
+        ),
+        Wrap(children: [
+          AnotherStepper(
+            stepperList: stepperData,
+            titleTextStyle: AppTextStyles.textStyleBoldBodySmall
+                .copyWith(color: AppColor.lightBlue, fontSize: 16.sp),
+            subtitleTextStyle: AppTextStyles.textStyleNormalBodyXSmall
+                .copyWith(color: AppColor.whiteColor, fontSize: 14.sp),
+            stepperDirection: Axis.horizontal,
+            activeBarColor: AppColor.lightBlue,
+            horizontalStepperHeight: 100,
+            inverted: false,
+            activeIndex: 4,
+            barThickness: 8,
+          ),
+        ]),
+        SizedBox(height: context.height * 0.07),
       ],
     );
   }

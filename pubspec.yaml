@@ -42,10 +42,14 @@ dependencies:
   font_awesome_flutter: ^10.2.1
   scroll_to_index:
   web_smooth_scroll: ^1.0.0
+  firebase_core: ^2.1.1
   styled_text: ^6.0.0
   flip_card: ^0.6.0
   carousel_slider: ^4.1.1
   url_launcher:
+  another_stepper: ^1.0.4
+  cloud_firestore: ^4.0.3
+
 
 
 dev_dependencies:

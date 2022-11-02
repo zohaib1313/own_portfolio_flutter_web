@@ -25,7 +25,7 @@ class MyProjects extends StatelessWidget {
             ),
             SizedBox(width: context.width * 0.02),
             const CustomText(
-              text: "PROJECTS",
+              text: "PROJECTS 50+",
               textsize: 26.0,
               color: Color(0xffCCD6F6),
               fontWeight: FontWeight.w700,
@@ -147,11 +147,17 @@ class MyProjects extends StatelessWidget {
                   tech1: "Flutter,Dart,Dio,Open Weather, GeoLocation, Map"),
               FeatureProject(
                   imagePath: const [
-                    "assets/projects/wa.png",
-                    "assets/projects/wa1.png",
-                    "assets/projects/wa2.png",
-                    "assets/projects/wa3.png",
-                    "assets/projects/wa4.jpeg"
+                    "assets/projects/zr.png",
+                    "assets/projects/zr1.png",
+                    "assets/projects/zr2.png",
+                    "assets/projects/zr3.png",
+                    "assets/projects/zr4.png",
+                    "assets/projects/zr5.png",
+                    "assets/projects/zr6.png",
+                    "assets/projects/zr7.png",
+                    "assets/projects/zr8.png",
+                    "assets/projects/zr9.png",
+                    "assets/projects/zr10.png",
                   ],
                   onTap: () {
                     /*  Method.launchURL(
@@ -162,6 +168,44 @@ class MyProjects extends StatelessWidget {
                       "A real estate application used to sale and purchase properties and rent them out, supporting multi languages, price predictions and ML",
                   projectTitle: "Zeerac",
                   tech1: "Flutter,Dart,Dio,GeoLocation,Map"),
+              FeatureProject(
+                  imagePath: const [
+                    "assets/projects/cf.jpeg",
+                    "assets/projects/cf1.jpeg",
+                    "assets/projects/cf2.jpeg",
+                    "assets/projects/cf3.jpeg",
+                    "assets/projects/cf4.jpeg"
+                  ],
+                  onTap: () {
+                    /*  Method.launchURL(
+                        "https://play.google.com/store/apps/details?id=com.appseen.contacts.sharing.app&hl=en&gl=US");
+             */
+                  },
+                  projectDesc:
+                      "A flutter application to provide cloud storage , like google drive with private and shared folder , where user can share documents with anyone.",
+                  projectTitle: "Cloud Folder",
+                  tech1: "Flutter,Dart,Rest Api,Twillio"),
+              FeatureProject(
+                  imagePath: const [
+                    "assets/projects/lgb.jpeg",
+                    "assets/projects/lgb1.jpeg",
+                    "assets/projects/lgb2.jpeg",
+                    "assets/projects/lgb3.jpeg",
+                    "assets/projects/lgb4.jpeg",
+                    "assets/projects/lgb5.jpeg",
+                    "assets/projects/lgb6.jpeg",
+                    "assets/projects/lgb7.jpeg",
+                    "assets/projects/lgb8.jpeg",
+                  ],
+                  onTap: () {
+                    /*  Method.launchURL(
+                        "https://play.google.com/store/apps/details?id=com.appseen.contacts.sharing.app&hl=en&gl=US");
+             */
+                  },
+                  projectDesc:
+                      "Flutter multi tenant application, for travelers and drivers in Gilgit Baltistan ,Pk for booking cabs and rides. ",
+                  projectTitle: "Lets Go Gb",
+                  tech1: "Flutter,Dart,Firebase,Chat"),
             ],
           ),
         ),
