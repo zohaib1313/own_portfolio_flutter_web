@@ -113,6 +113,7 @@ class AboutMePage extends StatelessWidget {
                                   technology(context, "Java"),
                                   technology(context, "Kotlin"),
                                   technology(context, "Java Script"),
+                                  technology(context, "AWS Services"),
                                 ],
                               ),
                             ),
@@ -125,6 +126,7 @@ class AboutMePage extends StatelessWidget {
                                   technology(context, "Google Maps"),
                                   technology(context, "Firebase"),
                                   technology(context, "Rest Apis"),
+                                  technology(context, "Amplify,DataStore"),
                                 ],
                               ),
                             )
@@ -168,8 +170,8 @@ class AboutMePage extends StatelessWidget {
                       width: 2000.w,
                       height: 300.h,
                       child: Image.asset(
-                        'assets/images/bg4.png',
-                        fit: BoxFit.fill,
+                        'assets/projects/dp.jpg',
+                        fit: BoxFit.scaleDown,
                       )),
                   SizedBox(height: context.height * 0.07),
 

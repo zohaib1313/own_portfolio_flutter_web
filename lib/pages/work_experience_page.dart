@@ -165,9 +165,9 @@ Implementation and Testing.
           AnotherStepper(
             stepperList: stepperData,
             titleTextStyle: AppTextStyles.textStyleBoldBodySmall
-                .copyWith(color: AppColor.lightBlue, fontSize: 16.sp),
+                .copyWith(color: AppColor.lightBlue, fontSize: (18.5).sp),
             subtitleTextStyle: AppTextStyles.textStyleNormalBodyXSmall
-                .copyWith(color: AppColor.whiteColor, fontSize: 14.sp),
+                .copyWith(color: AppColor.whiteColor, fontSize: (17.5).sp),
             stepperDirection: Axis.horizontal,
             activeBarColor: AppColor.lightBlue,
             horizontalStepperHeight: 100,
