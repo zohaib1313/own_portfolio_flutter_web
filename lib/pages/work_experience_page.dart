@@ -99,9 +99,9 @@ through meetings and video conferencing.
 ''',
             ),
             WorkCustomData(
-              title: "GLIMPES TECHNOLOGIES (Islamabad,Pk)",
+              title: "LADS TECHNOLOGIES (Islamabad,Pk)",
               jobTitle: 'Mobile applicaiton developer',
-              duration: "June 2019 - May 2020",
+              duration: "April 2018 - Aug 2020",
               subTitle: '''● Worked with professional team of 20+ developers.
 ● Involved in entire software development process for the project. Requirements, Specifications, Design,
 Implementation and Testing.
@@ -116,7 +116,7 @@ Implementation and Testing.
             WorkCustomData(
               title: "CENTER OF ADVANCE SOLUTIONS (Bahwalpur,Pk)",
               jobTitle: 'Android developer',
-              duration: "Feb 2017 - June 2019",
+              duration: "Feb 2017",
               subTitle:
                   '''● Worked as native android application developer using Java, Kotlin.
 ● Developed Project Management tools in native.
@@ -130,7 +130,7 @@ Implementation and Testing.
             WorkCustomData(
               title: "FIVERR",
               jobTitle: 'Mobile application developer',
-              duration: "2019- present",
+              duration: "2017- present",
               subTitle:
                   '''● Fiverr level one seller\n● Have developed 20+ projects\n●	5-star ratings\n●	5-star reviews''',
             ),
