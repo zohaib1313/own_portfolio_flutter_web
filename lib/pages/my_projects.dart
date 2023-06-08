@@ -68,6 +68,21 @@ class MyProjects extends StatelessWidget {
                   tech1: "Flutter,Dart,Biometrics"),
               FeatureProject(
                   imagePath: const [
+                    "assets/projects/beatmate1.png",
+                    "assets/projects/beatmate2.png",
+                    "assets/projects/beatmate3.png",
+                    "assets/projects/beatmate4.png",
+                    "assets/projects/beatmate5.png",
+                  ],
+                  onTap: () {
+                    Method.launchURL("https://github.com/zohaib1313/beatMate");
+                  },
+                  projectDesc:
+                      """The Metronome by Soundbrenner works great for daily practice, live performances or in the recording studio. Highlights: • Easy to use, but powerful. • Rock-solid precision. • Change time signature & subdivision and emphasize beats by setting accents""",
+                  projectTitle: "Beatmate Metronome)",
+                  tech1: "Android,Kotlin,NDK,C++"),
+              FeatureProject(
+                  imagePath: const [
                     "assets/projects/cs.jpg",
                     "assets/projects/cs2.jpg",
                     "assets/projects/cs3.jpg",

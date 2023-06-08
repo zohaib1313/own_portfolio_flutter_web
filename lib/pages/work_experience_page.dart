@@ -1,7 +1,5 @@
 import 'package:another_stepper/another_stepper.dart';
-import 'package:another_stepper/dto/stepper_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/common/app_colors.dart';
 
@@ -13,32 +11,34 @@ class WorkExperiencePage extends StatelessWidget {
 
   List<StepperData> stepperData = [
     StepperData(
-      title: "WEB",
-      subtitle: "HTML/CSS/PHP",
+      title: StepperText('ANDROID',
+          textStyle: const TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold)),
+      subtitle: StepperText("java/kotlin"),
     ),
     StepperData(
-      title: ".NET",
-      subtitle: "C#",
+      title: StepperText('FLUTTER',
+          textStyle: const TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold)),
+      subtitle: StepperText("dart"),
     ),
     StepperData(
-      title: "ANDROID",
-      subtitle: "java/kotlin",
+      title: StepperText('NODE EXPRESS',
+          textStyle: const TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold)),
+      subtitle: StepperText("java script"),
     ),
     StepperData(
-      title: "FLUTTER",
-      subtitle: "dart",
+      title: StepperText('REACT JS',
+          textStyle: const TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold)),
+      subtitle: StepperText("java script"),
     ),
     StepperData(
-      title: "NODE EXPRESS",
-      subtitle: "java script",
-    ),
-    StepperData(
-      title: "REACT JS",
-      subtitle: "java script",
-    ),
-    StepperData(
-      title: "IOS",
-      subtitle: "swift",
+      title: StepperText('IOS',
+          textStyle: const TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold)),
+      subtitle: StepperText("Swift"),
     ),
   ];
 
@@ -80,9 +80,24 @@ class WorkExperiencePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
             WorkCustomData(
+              title: "TenX pvt (Lahore)",
+              jobTitle: 'Senior Software Engineer (Flutter/Android)',
+              duration: "February 2023 - Present",
+              subTitle: '''● Worked with professional team of 20+ developers.
+● Involved in entire software development process for the project. Requirements, Specifications, Design,
+Implementation and Testing.
+● Used Flutter Getx & Provider to handle interaction between UI and Business Logics.
+● Integrated Amazon Web Services Like Cognito , S3, Appsync, PinPoint into the application.
+● Researched and selected Apis for integration into development of the applications.
+● Applied Agile methodology to evaluate final products and streamline development efforts.
+● Provided dedicated support and timely issues resolution to client following successful app launch.
+● Applied various techniques to locate bugs and errors in the applications.
+● Managed development milestones from initial steps through final delivery.''',
+            ),
+            WorkCustomData(
               title: "EVAMP & SAANGA (Islamabad,Pk)",
               jobTitle: 'Flutter Developer',
-              duration: "January 2021 - Present",
+              duration: "January 2019 - 2023",
               subTitle:
                   '''● Developing high scale flutter applications supporting Android/IOS/Web.
 ● Leading the team of 5 flutter developers.
@@ -99,38 +114,9 @@ through meetings and video conferencing.
 ''',
             ),
             WorkCustomData(
-              title: "LADS TECHNOLOGIES (Islamabad,Pk)",
-              jobTitle: 'Mobile applicaiton developer',
-              duration: "April 2018 - Aug 2020",
-              subTitle: '''● Worked with professional team of 20+ developers.
-● Involved in entire software development process for the project. Requirements, Specifications, Design,
-Implementation and Testing.
-● Used Flutter Getx & Provider to handle interaction between UI and Business Logics.
-● Integrated Amazon Web Services Like Cognito , S3, Appsync, PinPoint into the application.
-● Researched and selected Apis for integration into development of the applications.
-● Applied Agile methodology to evaluate final products and streamline development efforts.
-● Provided dedicated support and timely issues resolution to client following successful app launch.
-● Applied various techniques to locate bugs and errors in the applications.
-● Managed development milestones from initial steps through final delivery.''',
-            ),
-            WorkCustomData(
-              title: "CENTER OF ADVANCE SOLUTIONS (Bahwalpur,Pk)",
-              jobTitle: 'Android developer',
-              duration: "Feb 2017",
-              subTitle:
-                  '''● Worked as native android application developer using Java, Kotlin.
-● Developed Project Management tools in native.
-● Worked with native NDK, C++ libraries.
-● Integrating apps with third-party libraries.
-● Creating an architectural skeleton for future projects
-● Developed Android application first with SQLite before shifting to Firebase.
-● Implemented features like Image Compression, Location Services, User Authentication, Instant Messaging, and open source APIs
-● Design and integrate UI/UX mobile design to backend code''',
-            ),
-            WorkCustomData(
               title: "FIVERR",
-              jobTitle: 'Mobile application developer',
-              duration: "2017- present",
+              jobTitle: 'Mobile Application Developer',
+              duration: "2019- present",
               subTitle:
                   '''● Fiverr level one seller\n● Have developed 20+ projects\n●	5-star ratings\n●	5-star reviews''',
             ),
@@ -152,7 +138,7 @@ Implementation and Testing.
               color: Color(0xffCCD6F6),
               fontWeight: FontWeight.w700,
             ),
-            SizedBox(width: context.width * 0.02),
+            SizedBox(width: context.width * 0.04),
             Expanded(
               child: Container(
                 height: 1.10,
@@ -164,15 +150,16 @@ Implementation and Testing.
         Wrap(children: [
           AnotherStepper(
             stepperList: stepperData,
-            titleTextStyle: AppTextStyles.textStyleBoldBodySmall
-                .copyWith(color: AppColor.lightBlue, fontSize: (18.5).sp),
-            subtitleTextStyle: AppTextStyles.textStyleNormalBodyXSmall
-                .copyWith(color: AppColor.whiteColor, fontSize: (17.5).sp),
+            // titleTextStyle: AppTextStyles.textStyleBoldBodySmall
+            //     .copyWith(color: AppColor.lightBlue, fontSize: (18.5).sp),
+            // subtitleTextStyle: AppTextStyles.textStyleNormalBodyXSmall
+            //     .copyWith(color: AppColor.whiteColor, fontSize: (17.5).sp),
             stepperDirection: Axis.horizontal,
             activeBarColor: AppColor.lightBlue,
-            horizontalStepperHeight: 100,
+            //horizontalStepperHeight: 100,
+
             inverted: false,
-            activeIndex: 4,
+            activeIndex: 3,
             barThickness: 8,
           ),
         ]),

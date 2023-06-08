@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:styled_text/styled_text.dart';
 
 import '../common/app_colors.dart';
@@ -64,6 +63,7 @@ class WorkCustomData extends StatelessWidget {
           text: subTitle,
           overflow: TextOverflow.visible,
           newLineAsBreaks: true,
+          textHeightBehavior: TextHeightBehavior(),
           style: TextStyle(
             fontSize: 13.0,
             color: AppColor.grey,
